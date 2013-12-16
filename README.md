@@ -12,5 +12,5 @@ To install just place symlink to .vimrc in your home directory
 Tips
 ===
 If you want to make some changes, just fork the repo.
-If this changes will be helpfull for others, don't forget to share it to other through pull request :)
+If this changes will be helpfull for others, don't forget to share it to others through pull request :)
 
