@@ -20,9 +20,6 @@ call vundle#rc()
 " Add vundle to update it like any other bundle
 Bundle 'gmarik/vundle'
 
-" Not sure. if this still necesarry, remove if no problem appears
-"Bundle 'tomtom/tlib_vim'
-
 " Add snippets functionality for vim
 Bundle 'garbas/vim-snipmate'
 " Dependency for snipmate
