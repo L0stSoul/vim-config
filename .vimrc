@@ -202,7 +202,10 @@ set encoding=utf-8
 set termencoding=utf-8
 
 " Which EOl used. For us it's unix
-set fileformat=unix
+" Not works with modifiable=no
+if &modifiable
+    set fileformat=unix
+endif
 
 " Enable Tcl interface. Not shure what is exactly mean.
 " set infercase
