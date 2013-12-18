@@ -40,6 +40,8 @@ Bundle 'Raimondi/delimitMate'
 " I just enable it, with default config,
 " many false positive but still usefull
 Bundle 'scrooloose/syntastic'
+" Install jshint for Syntastic
+silent !type jshint &>/dev/null || { cd ~; echo 'Installing jshint'; npm install jshint; cd -; }
 
 " Great file system explorer, it appears when you open dir in vim
 " Allow modification of dir, and may other things
