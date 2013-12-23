@@ -446,6 +446,10 @@ if has("autocmd")
         autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+        " Disable vertical line at max string length in NERDTree
+        autocmd FileType * setlocal colorcolumn=+1
+        autocmd FileType nerdtree setlocal colorcolumn=""
+
     " Group end
     augroup END
 
