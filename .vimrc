@@ -281,6 +281,16 @@ set number
 " Highlight line with cursor
 set cursorline
 
+
+" maximum text length at 80 symbols, vim automatically breaks longer lines
+set textwidth=80
+
+" higlight column right after max textwidth
+set colorcolumn=+1
+
+" set highlighting for columns in colorcolumn
+highlight ColorColumn ctermbg=grey
+
 "--------------------------------------------------
 " Tab options
 
