@@ -94,6 +94,11 @@ Bundle 'hail2u/vim-css3-syntax'
 " http://www.vim.org/scripts/script.php?script_id=3081
 Bundle 'lukaszb/vim-web-indent'
 
+" Plugin for changing cursor when entering in insert mode
+" looks like it works fine with iTerm Konsole adn xerm
+" Applies only on next vim launch after BundleInstall
+Bundle 'jszakmeister/vim-togglecursor'
+
 " JShint :)
 " But not necessary with syntastics
 " Bundle 'walm/jshint.vim'
@@ -214,11 +219,6 @@ endif
 
 "--------------------------------------------------
 " Display options
-
-" Change cursor for different modes. it's magic
-" http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Show file name in window title
 set title
