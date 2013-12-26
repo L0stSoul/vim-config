@@ -57,9 +57,6 @@ if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.
     !npm --prefix ~/.vim/bundle/tern_for_vim install
 endif
 
-" Always open popup with autocompletion
-Bundle 'vim-scripts/AutoComplPop'
-
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
 " gc  - Toggle comments for selected region or number of strings
