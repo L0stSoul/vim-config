@@ -142,9 +142,6 @@ nnoremap <silent> <c-t> :FufFile **/<CR>
 " Tell NERDTree to display hidden files on startup
 let NERDTreeShowHidden=1
 
-" Display NERDTree on the left
-nmap <silent> <leader>t :NERDTreeToggle<CR>
-
 " Display current file in the NERDTree ont the left
 nmap <silent> <leader>f :NERDTreeFind<CR>
 
