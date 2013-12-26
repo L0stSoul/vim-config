@@ -161,9 +161,6 @@ nmap <silent> <leader>w :Gwrite<cr>
 "-------------------------
 " DelimitMate
 
-" Setup pair characters
-let delimitMate_matchpairs = '(:),[:],{:}'
-
 " Delimitmate place cursor correctly n multiline objects e.g.
 " if you press enter in {} cursor still be
 " in the middle line instead of the last
