@@ -19,6 +19,8 @@ call vundle#rc()
 
 " Add vundle to update it like any other bundle
 Bundle 'gmarik/vundle'
+" Some support functions used by delimitmate, and snipmate
+Bundle 'vim-scripts/tlib'
 
 " Add snippets functionality for vim
 Bundle 'garbas/vim-snipmate'
@@ -86,9 +88,6 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/FuzzyFinder'
 " Dependency for Fuzzy finder
 Bundle 'vim-scripts/L9'
-
-" Some support functions for coding in vim
-Bundle 'vim-scripts/tlib'
 
 " HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim.
 Bundle 'othree/html5.vim'
