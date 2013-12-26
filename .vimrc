@@ -48,6 +48,16 @@ silent !type jshint &>/dev/null || { cd ~; echo 'Installing jshint'; npm install
 " Must have
 Bundle 'scrooloose/nerdtree'
 
+" Provide smart autocomplete results for javascript, and some usefull commands
+Bundle 'marijnh/tern_for_vim'
+" install node dependencies for tern
+if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
+    !npm --prefix ~/.vim/bundle/tern_for_vim install
+endif
+
+" Always open popup with autocompletion
+Bundle 'vim-scripts/AutoComplPop'
+
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
 " gc  - Toggle comments for selected region or number of strings
