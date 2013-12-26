@@ -171,6 +171,21 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 "-------------------------
+" Tern_for_vim
+
+" Go to definition
+nmap <silent> <leader>td :TernDef<CR>
+
+" Find all refs for variable under cursor
+nmap <silent> <leader>trf :TernRefs<CR>
+
+" Find smart variable rename
+nmap <silent> <leader>trn :TernRename<CR>
+
+" Enable hints about function arguments
+let g:tern_show_argument_hints=1
+
+"-------------------------
 " Solarized
 
 " Without this solarized have dark background in my terminal
