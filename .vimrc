@@ -108,6 +108,10 @@ Bundle 'jszakmeister/vim-togglecursor'
 " Nice statusline/ruler for vim
 Bundle 'bling/vim-airline'
 
+" Improve javascritp syntax higlighting, needed for good folding,
+" and good-looking javascritp code
+Bundle 'jelera/vim-javascript-syntax'
+
 " JShint :)
 " But not necessary with syntastics
 " Bundle 'walm/jshint.vim'
