@@ -207,9 +207,6 @@ colorscheme solarized
 " Colorscheme for airline
 let g:airline_theme='understated'
 
-" Integration with syntastic
-"let g:airline_enable_syntastic=1
-
 " Set custom left separator
 let g:airline_left_sep = '▶'
 
