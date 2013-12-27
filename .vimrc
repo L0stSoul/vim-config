@@ -201,6 +201,22 @@ set background=light
 " Use solarized colorscheme
 colorscheme solarized
 
+"-------------------------
+" vim-airline
+
+" Colorscheme for airline
+let g:airline_theme='understated'
+
+" Integration with syntastic
+"let g:airline_enable_syntastic=1
+
+" Set custom left separator
+let g:airline_left_sep = '▶'
+
+" Set custom right separator
+let g:airline_right_sep = '◀'
+
+
 "--------------------------------------------------
 " General options
 
@@ -242,6 +258,10 @@ set t_Co=256
 
 "--------------------------------------------------
 " Display options
+
+" Hide showmode
+" Showmode is useless with airline
+set noshowmode
 
 " Show file name in window title
 set title
@@ -449,8 +469,8 @@ if has("autocmd")
     " Delete any previosly defined autocommands
     au!
         " Auto reload vim after your cahange it
-        au BufWritePost *.vim source $MYVIMRC
-        au BufWritePost .vimrc source $MYVIMRC
+        au BufWritePost *.vim source $MYVIMRC | AirlineRefresh
+        au BufWritePost .vimrc source $MYVIMRC | AirlineRefresh
 
         " Restore cursor position :help last-position-jump
         au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
