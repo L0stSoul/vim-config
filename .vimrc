@@ -189,9 +189,6 @@ nmap <silent> <leader>trf :TernRefs<CR>
 " Find smart variable rename
 nmap <silent> <leader>trn :TernRename<CR>
 
-" Enable hints about function arguments
-let g:tern_show_argument_hints=1
-
 "-------------------------
 " Solarized
 
