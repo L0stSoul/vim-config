@@ -220,7 +220,8 @@ let g:airline_right_sep = '◀'
 "--------------------------------------------------
 " General options
 
-set exrc secure " Enable per-directory .vimrc files and disable unsafe commands in them
+" Enable per-directory .vimrc files and disable unsafe commands in them
+set exrc secure
 
 " Set up leader key <leader>, i use default \
 "let mapleader = ','
