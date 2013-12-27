@@ -281,6 +281,9 @@ set whichwrap=b,s,<,>,[,],
 " Display command which you typing and other command related stuff
 set showcmd
 
+" Indicate that last window have a statusline too
+set laststatus=2
+
 " Add a line / column display in the bottom right-hand section of the screen.
 set ruler
 
