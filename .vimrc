@@ -226,6 +226,10 @@ if &modifiable
     set fileformat=unix
 endif
 
+" Use 256 colors in vim
+" vim-airline not work without it
+set t_Co=256
+
 " Enable Tcl interface. Not shure what is exactly mean.
 " set infercase
 
