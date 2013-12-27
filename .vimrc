@@ -460,7 +460,6 @@ set diffopt+=iwhite
 " It executes specific command when specific events occured
 " like reading or writing file, or open or close buffer
 if has("autocmd")
-
     " Define group of commands,
     " Commands defined in .vimrc don't bind twice if .vimrc will reload
     augroup vimrc
