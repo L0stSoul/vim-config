@@ -101,9 +101,13 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'lukaszb/vim-web-indent'
 
 " Plugin for changing cursor when entering in insert mode
+
 " looks like it works fine with iTerm Konsole adn xerm
 " Applies only on next vim launch after BundleInstall
 Bundle 'jszakmeister/vim-togglecursor'
+
+" Nice statusline/ruler for vim
+Bundle 'bling/vim-airline'
 
 " JShint :)
 " But not necessary with syntastics
