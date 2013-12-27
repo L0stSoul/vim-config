@@ -289,10 +289,12 @@ set showcmd
 set laststatus=2
 
 " Add a line / column display in the bottom right-hand section of the screen.
-set ruler
+" Not needed with airline plugin
+"set ruler
 
 " Setting up right-hand section(ruller) format
-set rulerformat=%30(%=\:%y%m%r%w\ %l,%c%V\ %P%)
+" Not needed with airline plugin
+"set rulerformat=%30(%=\:%y%m%r%w\ %l,%c%V\ %P%)
 
 " The cursor should stay where you leave it, instead of moving to the first non
 " blank of the line
