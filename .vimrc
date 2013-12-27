@@ -407,8 +407,8 @@ set wildcharm=<TAB>
 "--------------------------------------------------
 " Folding
 
-" Folding according to syntax
-set foldmethod=syntax
+" Enable syntax folding in javascript
+let javaScript_fold=1
 
 " No fold closed at open file
 set foldlevel=99
@@ -495,6 +495,9 @@ if has("autocmd")
         " Disable vertical line at max string length in NERDTree
         autocmd FileType * setlocal colorcolumn=+1
         autocmd FileType nerdtree setlocal colorcolumn=""
+
+        " Enable Folding, uses plugin vim-javascript-syntax
+        au FileType javascript* call JavaScriptFold()
 
     " Group end
     augroup END
