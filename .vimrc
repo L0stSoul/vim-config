@@ -186,10 +186,10 @@ let delimitMate_expand_space = 1
 nmap <silent> <leader>td :TernDef<CR>
 
 " Find all refs for variable under cursor
-nmap <silent> <leader>trf :TernRefs<CR>
+nmap <silent> <leader>tr :TernRefs<CR>
 
 " Find smart variable rename
-nmap <silent> <leader>trn :TernRename<CR>
+nmap <silent> <leader>tn :TernRename<CR>
 
 "-------------------------
 " Solarized
