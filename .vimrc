@@ -52,10 +52,12 @@ silent !type csslint &>/dev/null || { cd ~; echo 'Installing csslint'; npm insta
 Bundle 'scrooloose/nerdtree'
 
 " Provide smart autocomplete results for javascript, and some usefull commands
-Bundle 'marijnh/tern_for_vim'
-" install node dependencies for tern
-if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
-    !npm --prefix ~/.vim/bundle/tern_for_vim install
+if has("python")
+    Bundle 'marijnh/tern_for_vim'
+    " install node dependencies for tern
+    if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
+        !npm --prefix ~/.vim/bundle/tern_for_vim install
+    endif
 endif
 
 " Add smart commands for comments like:
