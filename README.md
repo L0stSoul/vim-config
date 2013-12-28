@@ -1,8 +1,13 @@
-vim-config
-==========
 
-Config for Vim for web-development
-It fully comented, so it's really easy to understand each of the options.
+<img src="http://i.imgur.com/ElOEHZ3.png"/>
+
+Main features
+==
+* Best for web-development, but fit to many other tasks.
+* Easy to understand. It fully comented - each option, plugin, almost everything.
+* Easy to install. Just copy .vimrc and open vim, thats all. All bundles and npm-packages will install automatically.
+* Only best and finely tuned plugins
+* Many small usefull features (smart search, good js foding, autoreload config, inidcated maxwidth etc.) 
 
 Installation
 ===
