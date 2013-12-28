@@ -213,6 +213,20 @@ let g:airline_left_sep = '▶'
 " Set custom right separator
 let g:airline_right_sep = '◀'
 
+" Enable airline for tab-bar
+let g:airline#extensions#tabline#enabled = 1
+
+" Don't display buffers in tab-bar with single tab
+let g:airline#extensions#tabline#show_buffers = 0
+
+" Display only filename in tab
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Don't display encoding
+let g:airline_section_y = ''
+
+" Don't display filetype
+let g:airline_section_x = ''
 
 "--------------------------------------------------
 " General options
