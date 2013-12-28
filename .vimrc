@@ -80,7 +80,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 " Add aditional hotkeys
-Bundle 'tpope/vim-unimpaired'
+" Looks like i'm not using it at all
+"Bundle 'tpope/vim-unimpaired'
 
 " Smart search for anythig
 Bundle 'vim-scripts/FuzzyFinder'
