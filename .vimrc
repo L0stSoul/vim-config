@@ -69,7 +69,7 @@ if has("python")
     Bundle 'marijnh/tern_for_vim'
     " install node dependencies for tern
     if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
-        !npm --prefix ~/.vim/bundle/tern_for_vim install
+        silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
     endif
 endif
 
