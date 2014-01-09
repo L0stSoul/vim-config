@@ -22,6 +22,10 @@ Bundle 'gmarik/vundle'
 " Some support functions used by delimitmate, and snipmate
 Bundle 'vim-scripts/tlib'
 
+" Improve bookmarks in vim
+" Allow word for bookmark marks, and nice quickfix window with bookmark list
+Bundle 'AndrewRadev/simple_bookmarks.vim'
+
 " Add snippets functionality for vim
 Bundle 'garbas/vim-snipmate'
 " Dependency for snipmate
@@ -181,6 +185,19 @@ nmap <silent> <leader>b :.Gblame<cr>
 vmap <silent> <leader>b :Gblame<cr>
 nmap <silent> <leader>g :Gstatus<cr>
 nmap <silent> <leader>w :Gwrite<cr>
+
+"-------------------------
+" simple_bookmark
+
+" set custom path for bookmark file
+let g:simple_bookmarks_filename = '~/.vim/.vim_bookmarks'
+
+" hotkey for open Bookmark list
+nmap <silent> <leader>ml :CopenBookmarks<CR>
+
+" override default bookmarks with ours
+nmap m :Bookmark<Space>
+nmap ' :GotoBookmark<Space>
 
 "-------------------------
 " DelimitMate
