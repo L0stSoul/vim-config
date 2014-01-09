@@ -22,6 +22,9 @@ Bundle 'gmarik/vundle'
 " Some support functions used by delimitmate, and snipmate
 Bundle 'vim-scripts/tlib'
 
+" Add colors preview in css
+Bundle 'AndrewRadev/simple_bookmarks.vim'
+
 " Add snippets functionality for vim
 Bundle 'garbas/vim-snipmate'
 " Dependency for snipmate
@@ -44,6 +47,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 " Install jshint and csslint for syntastic
 " Path to jshint if it not installed globally, then use local installation
+
 if !executable("jshint")
     let g:syntastic_jshint_exec = '~/.vim/node_modules/.bin/jshint'
     "let g:syntastic_javascript_jshint_exec = '~/.vim/node_modules/.bin/jshint'
@@ -181,6 +185,19 @@ nmap <silent> <leader>b :.Gblame<cr>
 vmap <silent> <leader>b :Gblame<cr>
 nmap <silent> <leader>g :Gstatus<cr>
 nmap <silent> <leader>w :Gwrite<cr>
+
+"-------------------------
+" simple_bookmark
+
+" set custom path for bookmark file
+let g:simple_bookmarks_filename = '~/.vim/.vim_bookmarks'
+
+" hotkey for open Bookmark list
+nmap <silent> <leader>ml :CopenBookmarks<CR>
+
+" override default bookmarks with ours
+nmap m :Bookmark<Space>
+nmap ' :GotoBookmark<Space>
 
 "-------------------------
 " DelimitMate
