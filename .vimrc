@@ -22,7 +22,8 @@ Bundle 'gmarik/vundle'
 " Some support functions used by delimitmate, and snipmate
 Bundle 'vim-scripts/tlib'
 
-" Add colors preview in css
+" Improve bookmarks in vim
+" Allow word for bookmark marks, and nice quickfix window with bookmark list
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 
 " Add snippets functionality for vim
@@ -47,7 +48,6 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/syntastic'
 " Install jshint and csslint for syntastic
 " Path to jshint if it not installed globally, then use local installation
-
 if !executable("jshint")
     let g:syntastic_jshint_exec = '~/.vim/node_modules/.bin/jshint'
     "let g:syntastic_javascript_jshint_exec = '~/.vim/node_modules/.bin/jshint'
