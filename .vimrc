@@ -273,7 +273,7 @@ let g:airline_section_x = ''
 " General options
 
 " Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc secure
+"set exrc secure
 
 " Set up leader key <leader>, i use default \
 "let mapleader = ','
