@@ -133,6 +133,10 @@ Bundle 'bling/vim-airline'
 " and good-looking javascritp code
 Bundle 'jelera/vim-javascript-syntax'
 
+
+" Code complete
+Bundle 'Shougo/neocomplcache.vim'
+
 " JShint :)
 " But not necessary with syntastics
 " Bundle 'walm/jshint.vim'
@@ -268,6 +272,41 @@ let g:airline_section_y = ''
 
 " Don't display filetype
 let g:airline_section_x = ''
+
+"-------------------------
+" neocomplcache
+
+" Enable NeocomplCache at startup
+let g:neocomplcache_enable_at_startup = 1
+
+" Max items in code-complete
+let g:neocomplcache_max_list = 10
+
+" Max width of code-complete window
+let g:neocomplcache_max_keyword_width = 40
+
+" Code complete is ignoring case until no Uppercase letter is in input
+let g:neocomplcache_enable_smart_case = 1
+
+" Auto select first item in code-complete
+"let g:neocomplcache_enable_auto_select = 1
+
+" select next autocomplete item on tab
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+" For cursor moving in insert mode
+inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+
+" disable preview in code complete
+set completeopt-=preview
 
 "--------------------------------------------------
 " General options
