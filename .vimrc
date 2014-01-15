@@ -26,13 +26,12 @@ Bundle 'vim-scripts/tlib'
 " Allow word for bookmark marks, and nice quickfix window with bookmark list
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 
-" Add snippets functionality for vim
-Bundle 'garbas/vim-snipmate'
-" Dependency for snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-
-" Default snippets. for snipmate
-Bundle 'honza/vim-snippets'
+" Snippets engine with good integration with neocomplcache
+Bundle 'Shougo/neosnippet'
+" Default snippets for neosnippet
+Bundle 'Shougo/neosnippet-snippets'
+" Extra snippets
+" Bundle 'honza/vim-snippets'
 
 " Colorscheme solarazied for vim
 Bundle 'altercation/vim-colors-solarized'
@@ -245,6 +244,20 @@ set background=light
 
 " Use solarized colorscheme
 colorscheme solarized
+
+"-------------------------
+" neosnippets
+"
+
+" Enable snipMate compatibility
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Expand snippet and jimp to next snippet field on Enter key.
+imap <expr><CR> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
 
 "-------------------------
 " vim-airline
