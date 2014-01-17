@@ -296,16 +296,36 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 10
 
 " Max width of code-complete window
-let g:neocomplcache_max_keyword_width = 40
+let g:neocomplcache_max_keyword_width = 80
 
 " Code complete is ignoring case until no Uppercase letter is in input
 let g:neocomplcache_enable_smart_case = 1
 
 " Auto select first item in code-complete
-"let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_auto_select = 1
 
-" select next autocomplete item on tab
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Disable auto popup
+let g:neocomplcache_disable_auto_complete = 1
+
+" Smart tab Behavior
+function! CleverTab()
+    " If autocomplete window visible then select next item in there
+    if pumvisible()
+        return "\<C-n>"
+    endif
+    " If it's begining of the string then return just tab pressed
+    let substr = strpart(getline('.'), 0, col('.') - 1)
+    let substr = matchstr(substr, '[^ \t]*$')
+    if strlen(substr) == 0
+        " nothing to match on empty string
+        return "\<Tab>"
+    else
+        " If not begining of the string, and autocomplete popup is not visible
+        " Open this popup
+        return "\<C-x>\<C-u>"
+    endif
+endfunction
+inoremap <expr><TAB> CleverTab()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
