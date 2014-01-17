@@ -26,12 +26,11 @@ Bundle 'vim-scripts/tlib'
 " Allow word for bookmark marks, and nice quickfix window with bookmark list
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 
-" Add snippets functionality for vim
-Bundle 'garbas/vim-snipmate'
-" Dependency for snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-
-" Default snippets. for snipmate
+" Snippets engine with good integration with neocomplcache
+Bundle 'Shougo/neosnippet'
+" Default snippets for neosnippet, i prefer vim-snippets
+"Bundle 'Shougo/neosnippet-snippets'
+" Default snippets
 Bundle 'honza/vim-snippets'
 
 " Colorscheme solarazied for vim
@@ -132,6 +131,10 @@ Bundle 'bling/vim-airline'
 " Improve javascritp syntax higlighting, needed for good folding,
 " and good-looking javascritp code
 Bundle 'jelera/vim-javascript-syntax'
+
+
+" Code complete
+Bundle 'Shougo/neocomplcache.vim'
 
 " JShint :)
 " But not necessary with syntastics
@@ -243,6 +246,23 @@ set background=light
 colorscheme solarized
 
 "-------------------------
+" neosnippets
+"
+
+" Enable snipMate compatibility
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Disables standart snippets. We use vim-snippets bundle instead
+let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
+
+" Expand snippet and jimp to next snippet field on Enter key.
+imap <expr><CR> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
+
+"-------------------------
 " vim-airline
 
 " Colorscheme for airline
@@ -269,11 +289,66 @@ let g:airline_section_y = ''
 " Don't display filetype
 let g:airline_section_x = ''
 
+"-------------------------
+" neocomplcache
+
+" Enable NeocomplCache at startup
+let g:neocomplcache_enable_at_startup = 1
+
+" Max items in code-complete
+let g:neocomplcache_max_list = 10
+
+" Max width of code-complete window
+let g:neocomplcache_max_keyword_width = 80
+
+" Code complete is ignoring case until no Uppercase letter is in input
+let g:neocomplcache_enable_smart_case = 1
+
+" Auto select first item in code-complete
+let g:neocomplcache_enable_auto_select = 1
+
+" Disable auto popup
+let g:neocomplcache_disable_auto_complete = 1
+
+" Smart tab Behavior
+function! CleverTab()
+    " If autocomplete window visible then select next item in there
+    if pumvisible()
+        return "\<C-n>"
+    endif
+    " If it's begining of the string then return just tab pressed
+    let substr = strpart(getline('.'), 0, col('.') - 1)
+    let substr = matchstr(substr, '[^ \t]*$')
+    if strlen(substr) == 0
+        " nothing to match on empty string
+        return "\<Tab>"
+    else
+        " If not begining of the string, and autocomplete popup is not visible
+        " Open this popup
+        return "\<C-x>\<C-u>"
+    endif
+endfunction
+inoremap <expr><TAB> CleverTab()
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+
+" For cursor moving in insert mode
+inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+
+" disable preview in code complete
+set completeopt-=preview
+
 "--------------------------------------------------
 " General options
 
 " Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc secure
+"set exrc secure
 
 " Set up leader key <leader>, i use default \
 "let mapleader = ','
