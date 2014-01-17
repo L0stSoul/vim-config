@@ -28,10 +28,10 @@ Bundle 'AndrewRadev/simple_bookmarks.vim'
 
 " Snippets engine with good integration with neocomplcache
 Bundle 'Shougo/neosnippet'
-" Default snippets for neosnippet
-Bundle 'Shougo/neosnippet-snippets'
-" Extra snippets
-" Bundle 'honza/vim-snippets'
+" Default snippets for neosnippet, i prefer vim-snippets
+"Bundle 'Shougo/neosnippet-snippets'
+" Default snippets
+Bundle 'honza/vim-snippets'
 
 " Colorscheme solarazied for vim
 Bundle 'altercation/vim-colors-solarized'
@@ -254,6 +254,9 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Disables standart snippets. We use vim-snippets bundle instead
+let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
 
 " Expand snippet and jimp to next snippet field on Enter key.
 imap <expr><CR> neosnippet#expandable_or_jumpable() ?
