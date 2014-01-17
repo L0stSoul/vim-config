@@ -26,6 +26,10 @@ Bundle 'vim-scripts/tlib'
 " Allow word for bookmark marks, and nice quickfix window with bookmark list
 Bundle 'AndrewRadev/simple_bookmarks.vim'
 
+" plugin for fuzzy file search, most recent files list
+" and much more
+Bundle 'Shougo/unite.vim'
+
 " Snippets engine with good integration with neocomplcache
 Bundle 'Shougo/neosnippet'
 " Default snippets for neosnippet, i prefer vim-snippets
