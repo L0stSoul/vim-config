@@ -105,11 +105,6 @@ Bundle 'tpope/vim-surround'
 " Looks like i'm not using it at all
 "Bundle 'tpope/vim-unimpaired'
 
-" Smart search for anythig
-Bundle 'vim-scripts/FuzzyFinder'
-" Dependency for Fuzzy finder
-Bundle 'vim-scripts/L9'
-
 " HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim.
 Bundle 'othree/html5.vim'
 
@@ -158,15 +153,6 @@ syntax on
 
 "--------------------------------------------------
 " Bundles settings
-
-"-------------------------
-" FuzzyFinder
-
-" Exclude some files from suggest
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|jpg|png|gif|svg)$|(^|[/\\])(\.(hg|git|bzr)|tmp)($|[/\\])'
-
-" Find File
-nnoremap <silent> <c-t> :FufFile **/<CR>
 
 "-------------------------
 " NERDTree
