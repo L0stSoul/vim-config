@@ -349,6 +349,9 @@ set completeopt-=preview
 " Auto reload changed files
 set autoread
 
+" Always change current dirrectory to current-editing-file dir
+set autochdir
+
 " Indicates fast terminal connection
 set ttyfast
 
