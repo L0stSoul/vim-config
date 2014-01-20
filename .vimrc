@@ -155,6 +155,46 @@ syntax on
 " Bundles settings
 
 "-------------------------
+" Unite
+
+" Set unite window height
+let g:unite_winheight = 10
+
+" Start unite in insert mode by default
+let g:unite_enable_start_insert = 1
+
+" Display unite on the bottom (or bottom right) part of the screen
+let g:unite_split_rule = 'botright'
+
+" Set short limit for max most recent files count.
+" It less unrelative recent files this way
+let g:unite_source_file_mru_limit = 30
+
+let g:unite_cursor_line_highlight = 'TabLineSel'
+let g:unite_abbr_highlight = 'TabLine'
+
+" Hotkey for open window with most recent files
+nnoremap <silent><leader>m :<C-u>Unite file_mru <CR>
+
+" Enable history for yanks
+let g:unite_source_history_yank_enable = 1
+
+" Make samll limit for yank history, to use it like multiple buffers
+let g:unite_source_history_yank_limit = 20
+
+" Hotkey for open history window
+nnoremap <silent><leader>h :Unite history/yank -quick-match<CR>
+
+" Quick tab navigation
+nnoremap <silent><leader>' :Unite -quick-match tab<CR>
+
+
+function! s:unite_settings()
+    "Close Unite on <ESC>
+    nmap <buffer> <ESC> <Plug>(unite_all_exit)
+endfunction
+
+"-------------------------
 " NERDTree
 
 " Tell NERDTree to display hidden files on startup
@@ -619,6 +659,9 @@ if has("autocmd")
 
         " Enable Folding, uses plugin vim-javascript-syntax
         au FileType javascript* call JavaScriptFold()
+
+        " Special setting for Unite buffer
+        autocmd FileType unite call s:unite_settings()
 
     " Group end
     augroup END
