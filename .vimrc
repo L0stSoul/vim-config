@@ -212,9 +212,9 @@ nnoremap <silent><leader>h :Unite history/yank -quick-match<CR>
 " Quick tab navigation
 nnoremap <silent><leader>' :Unite -quick-match tab<CR>
 
-
+" Unite settings for autocmd
 function! s:unite_settings()
-    "Close Unite on <ESC>
+    " Close Unite on <ESC>
     nmap <buffer> <ESC> <Plug>(unite_all_exit)
 endfunction
 
