@@ -616,6 +616,7 @@ let javaScript_fold=1
 
 " No fold closed at open file
 set foldlevelstart=99
+set nofoldenable
 
 " Keymap to toggle folds with space
 nmap <space> za
