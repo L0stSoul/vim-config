@@ -216,11 +216,16 @@ nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
 nnoremap <silent><leader>' :Unite file_rec/async -start-insert<CR>
 
 " Unite-grep
-nnoremap <silent><leader>/ :Unite grep:. -start-insert -silent -wrap<CR>
+nnoremap <silent><leader>/ :Unite grep:. -start-insert -no-quit -wrap<CR>
+
+" Grep options Default for unite + supress error messages
+let g:unite_source_grep_default_opts = '-iRHns'
 
 " If ack exists use it instead of grep
 if executable('ack-grep')
+    " Use ack-grep
     let g:unite_source_grep_command = 'ack-grep'
+    " Set up ack options
     let g:unite_source_grep_default_opts = '--no-heading --no-color -a -H'
     let g:unite_source_grep_recursive_opt = ''
 endif
@@ -427,7 +432,7 @@ set completeopt-=preview
 set autoread
 
 " Always change current dirrectory to current-editing-file dir
-set autochdir
+"set autochdir
 
 " Indicates fast terminal connection
 set ttyfast
