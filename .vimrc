@@ -207,10 +207,23 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_history_yank_limit = 20
 
 " Hotkey for open history window
-nnoremap <silent><leader>h :Unite history/yank -quick-match<CR>
+nnoremap <silent><leader>h :Unite -quick-match -auto-quit history/yank<CR>
 
 " Quick tab navigation
-nnoremap <silent><leader>' :Unite -quick-match tab<CR>
+nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
+
+" Fuzzy find files
+nnoremap <silent><leader>' :Unite file_rec/async -start-insert<CR>
+
+" Unite-grep
+nnoremap <silent><leader>/ :Unite grep:. -start-insert -silent -wrap<CR>
+
+" If ack exists use it instead of grep
+if executable('ack-grep')
+    let g:unite_source_grep_command = 'ack-grep'
+    let g:unite_source_grep_default_opts = '--no-heading --no-color -a -H'
+    let g:unite_source_grep_recursive_opt = ''
+endif
 
 " Unite settings for autocmd
 function! s:unite_settings()
