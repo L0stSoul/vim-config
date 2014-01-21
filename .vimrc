@@ -676,6 +676,7 @@ if has("autocmd")
         au FileType htmldjango set ft=html.htmldjango
         au FileType scss set ft=scss.css
         au FileType less set ft=less.css
+        au BufWinEnter * if line2byte(line("$") + 1) > 100000 | syntax clear | endif
         au BufRead,BufNewFile *.js set ft=javascript.javascript-jquery
         au BufRead,BufNewFile *.json set ft=javascript
         " Execute python \ -mjson.tool for autoformatting *.json
