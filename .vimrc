@@ -1,50 +1,75 @@
 "--------------------------------------------------
-" Bundles
+" NeoBundles
 
 " Turn off filetype plugins before bundles init
 filetype off
-
-" Setting up Vundle if not installed
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo 'Installing Vundle..'
-    echo ''
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+" Auto installing NeoNeoBundle
+let iCanHazNeoBundle=1
+let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+    echo "Installing NeoBundle.."
+    silent !mkdir -p $HOME/.vim/bundle
+    silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+    let iCanHazNeoBundle=0
 endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-" Add vundle to update it like any other bundle
-Bundle 'gmarik/vundle'
+
+
+
+" Call NeoBundle
+if has('vim_starting')
+    set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
+endif
+call neobundle#rc(expand($HOME.'/.vim/bundle/'))
+
+" Determine make or gmake will be used for making additional deps for Bundles
+let g:make = 'gmake'
+if system('uname -o') =~ '^GNU/'
+    let g:make = 'make'
+endif
+
+" Let NeoNeoBundle manage NeoNeoBundle
+NeoBundle 'Shougo/neobundle.vim'
+
+" Instlall vimrpoc. is uses by unite and neocomplcache
+" for async searches and calls
+NeoBundle 'Shougo/vimproc', {
+\ 'build' : {
+\     'mac' : 'make -f make_mac.mak',
+\     'unix': g:make
+\    },
+\ }
+
 " Some support functions used by delimitmate, and snipmate
-Bundle 'vim-scripts/tlib'
+NeoBundle 'vim-scripts/tlib'
 
 " Improve bookmarks in vim
 " Allow word for bookmark marks, and nice quickfix window with bookmark list
-Bundle 'AndrewRadev/simple_bookmarks.vim'
+NeoBundle 'AndrewRadev/simple_bookmarks.vim'
+
+" plugin for fuzzy file search, most recent files list
+" and much more
+NeoBundle 'Shougo/unite.vim'
 
 " Snippets engine with good integration with neocomplcache
-Bundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet'
 " Default snippets for neosnippet, i prefer vim-snippets
-"Bundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'Shougo/neosnippet-snippets'
 " Default snippets
-Bundle 'honza/vim-snippets'
+NeoBundle 'honza/vim-snippets'
 
 " Colorscheme solarazied for vim
-Bundle 'altercation/vim-colors-solarized'
+NeoBundle 'altercation/vim-colors-solarized'
 
 " Allow autoclose paired characters like [,] or (,),
 " and add smart cursor positioning inside it,
-Bundle 'Raimondi/delimitMate'
+NeoBundle 'Raimondi/delimitMate'
 
 " Add code static check on write
 " need to be properly configured.
 " I just enable it, with default config,
 " many false positive but still usefull
-Bundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/syntastic'
 " Install jshint and csslint for syntastic
 " Path to jshint if it not installed globally, then use local installation
 if !executable("jshint")
@@ -65,11 +90,11 @@ endif
 " Great file system explorer, it appears when you open dir in vim
 " Allow modification of dir, and may other things
 " Must have
-Bundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 
 " Provide smart autocomplete results for javascript, and some usefull commands
 if has("python")
-    Bundle 'marijnh/tern_for_vim'
+    NeoBundle 'marijnh/tern_for_vim'
     " install node dependencies for tern
     if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
         silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
@@ -80,71 +105,65 @@ endif
 " gcc - Toggle comment for the current line
 " gc  - Toggle comments for selected region or number of strings
 " Very usefull
-Bundle 'tomtom/tcomment_vim'
+NeoBundle 'tomtom/tcomment_vim'
 
 " Best git wrapper for vim
 " But with my workflow, i really rarely use it
 " just Gdiff and Gblame sometimes
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 
 " Fix-up dot command behavior
 " it's kind of service plugin
-Bundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-repeat'
 
 " Add usefull hotkey for operation with surroundings
 " cs{what}{towhat} - inside '' or [] or something like this allow
 " change surroundings symbols to another
 " and ds{what} - remove them
-Bundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-surround'
 
 " Add aditional hotkeys
 " Looks like i'm not using it at all
-"Bundle 'tpope/vim-unimpaired'
-
-" Smart search for anythig
-Bundle 'vim-scripts/FuzzyFinder'
-" Dependency for Fuzzy finder
-Bundle 'vim-scripts/L9'
+"NeoBundle 'tpope/vim-unimpaired'
 
 " HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim.
-Bundle 'othree/html5.vim'
+NeoBundle 'othree/html5.vim'
 
 " Highlights the matching HTML tag when the cursor
 " is positioned on a tag.
-Bundle 'gregsexton/MatchTag'
+NeoBundle 'gregsexton/MatchTag'
 
 " Add Support css3 property
-Bundle 'hail2u/vim-css3-syntax'
+NeoBundle 'hail2u/vim-css3-syntax'
 
 " Smart indent for javascript
 " http://www.vim.org/scripts/script.php?script_id=3081
-Bundle 'lukaszb/vim-web-indent'
+NeoBundle 'lukaszb/vim-web-indent'
 
 " Plugin for changing cursor when entering in insert mode
 " looks like it works fine with iTerm Konsole adn xerm
-" Applies only on next vim launch after BundleInstall
-Bundle 'jszakmeister/vim-togglecursor'
+" Applies only on next vim launch after NeoBundleInstall
+NeoBundle 'jszakmeister/vim-togglecursor'
 
 " Nice statusline/ruler for vim
-Bundle 'bling/vim-airline'
+NeoBundle 'bling/vim-airline'
 
 " Improve javascritp syntax higlighting, needed for good folding,
 " and good-looking javascritp code
-Bundle 'jelera/vim-javascript-syntax'
+NeoBundle 'jelera/vim-javascript-syntax'
 
 
 " Code complete
-Bundle 'Shougo/neocomplcache.vim'
+NeoBundle 'Shougo/neocomplcache.vim'
 
 " JShint :)
 " But not necessary with syntastics
-" Bundle 'walm/jshint.vim'
+" NeoBundle 'walm/jshint.vim'
 
 " Installing bundles for the first time
-if iCanHazVundle == 0
+if iCanHazNeoBundle == 0
     echo 'Installing Bundles, please ignore key map error messages'
-    echo ''
-    :BundleInstall
+    :NeoBundleInstall
 endif
 
 " Enable Indent in plugins
@@ -152,17 +171,65 @@ filetype plugin indent on
 " Enable syntax highlighting
 syntax on
 
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 "--------------------------------------------------
 " Bundles settings
 
 "-------------------------
-" FuzzyFinder
+" Unite
 
-" Exclude some files from suggest
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc|jpg|png|gif|svg)$|(^|[/\\])(\.(hg|git|bzr)|tmp)($|[/\\])'
+" Set unite window height
+let g:unite_winheight = 10
 
-" Find File
-nnoremap <silent> <c-t> :FufFile **/<CR>
+" Start unite in insert mode by default
+let g:unite_enable_start_insert = 1
+
+" Display unite on the bottom (or bottom right) part of the screen
+let g:unite_split_rule = 'botright'
+
+" Set short limit for max most recent files count.
+" It less unrelative recent files this way
+let g:unite_source_file_mru_limit = 30
+
+let g:unite_cursor_line_highlight = 'TabLineSel'
+let g:unite_abbr_highlight = 'TabLine'
+
+" Hotkey for open window with most recent files
+nnoremap <silent><leader>m :<C-u>Unite file_mru <CR>
+
+" Enable history for yanks
+let g:unite_source_history_yank_enable = 1
+
+" Make samll limit for yank history, to use it like multiple buffers
+let g:unite_source_history_yank_limit = 20
+
+" Hotkey for open history window
+nnoremap <silent><leader>h :Unite -quick-match -auto-quit history/yank<CR>
+
+" Quick tab navigation
+nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
+
+" Fuzzy find files
+nnoremap <silent><leader>' :Unite file_rec/async -start-insert<CR>
+
+" Unite-grep
+nnoremap <silent><leader>/ :Unite grep:. -start-insert -silent -wrap<CR>
+
+" If ack exists use it instead of grep
+if executable('ack-grep')
+    let g:unite_source_grep_command = 'ack-grep'
+    let g:unite_source_grep_default_opts = '--no-heading --no-color -a -H'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
+" Unite settings for autocmd
+function! s:unite_settings()
+    " Close Unite on <ESC>
+    nmap <buffer> <ESC> <Plug>(unite_all_exit)
+endfunction
 
 "-------------------------
 " NERDTree
@@ -358,6 +425,9 @@ set completeopt-=preview
 
 " Auto reload changed files
 set autoread
+
+" Always change current dirrectory to current-editing-file dir
+set autochdir
 
 " Indicates fast terminal connection
 set ttyfast
@@ -626,6 +696,9 @@ if has("autocmd")
 
         " Enable Folding, uses plugin vim-javascript-syntax
         au FileType javascript* call JavaScriptFold()
+
+        " Special setting for Unite buffer
+        autocmd FileType unite call s:unite_settings()
 
     " Group end
     augroup END
