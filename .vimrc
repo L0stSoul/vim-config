@@ -213,7 +213,7 @@ nnoremap <silent><leader>h :Unite -quick-match -auto-quit history/yank<CR>
 nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
 
 " Fuzzy find files
-nnoremap <silent><leader>' :Unite file_rec/async -start-insert<CR>
+nnoremap <silent><leader>e :Unite file_rec/async -start-insert<CR>
 
 " Unite-grep
 nnoremap <silent><leader>/ :Unite grep:. -start-insert -no-quit -wrap<CR>
