@@ -216,7 +216,7 @@ nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
 nnoremap <silent><leader>e :Unite file_rec/async -start-insert<CR>
 
 " Unite-grep
-nnoremap <silent><leader>/ :Unite grep:. -start-insert -no-quit -wrap<CR>
+nnoremap <silent><leader>/ :Unite grep:. -no-start-insert -no-quit -keep-focus -wrap<CR>
 
 " Grep options Default for unite + supress error messages
 let g:unite_source_grep_default_opts = '-iRHns'
