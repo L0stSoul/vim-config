@@ -192,7 +192,7 @@ let g:unite_split_rule = 'botright'
 
 " Set short limit for max most recent files count.
 " It less unrelative recent files this way
-let g:unite_source_file_mru_limit = 30
+let g:unite_source_file_mru_limit = 100
 
 let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_abbr_highlight = 'TabLine'
