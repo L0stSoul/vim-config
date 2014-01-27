@@ -17,6 +17,7 @@ endif
 if has('vim_starting')
     set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
 endif
+
 call neobundle#rc(expand($HOME.'/.vim/bundle/'))
 
 " Determine make or gmake will be used for making additional deps for Bundles
