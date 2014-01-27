@@ -269,9 +269,12 @@ nmap <silent> <leader>gw :Gwrite<cr>
 " git diff
 nmap <silent> <leader>gd :Gdiff<cr>
 " git commit
-nmap <silent> <leader>gci :Gcommit<cr>
+nmap <silent> <leader>gc :Gcommit<cr>
 " git commit all
 nmap <silent> <leader>gca :Gcommit -a<cr>
+" git fixup previous commit
+nmap <silent> <leader>gcf :Gcommit -a --amend<cr>
+
 
 "-------------------------
 " DelimitMate
