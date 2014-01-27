@@ -152,7 +152,6 @@ NeoBundle 'bling/vim-airline'
 " and good-looking javascritp code
 NeoBundle 'jelera/vim-javascript-syntax'
 
-
 " Code complete
 NeoBundle 'Shougo/neocomplcache.vim'
 
