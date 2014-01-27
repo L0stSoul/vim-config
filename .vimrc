@@ -1,5 +1,5 @@
 "--------------------------------------------------
-" NeoBundles
+" NeoBundle Init
 
 " Turn off filetype plugins before bundles init
 filetype off
@@ -13,9 +13,6 @@ if !filereadable(neobundle_readme)
     let iCanHazNeoBundle=0
 endif
 
-
-
-
 " Call NeoBundle
 if has('vim_starting')
     set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
@@ -27,6 +24,9 @@ let g:make = 'gmake'
 if system('uname -o') =~ '^GNU/'
     let g:make = 'make'
 endif
+
+"--------------------------------------------------
+" Bundles
 
 " Let NeoNeoBundle manage NeoNeoBundle
 NeoBundle 'Shougo/neobundle.vim'
