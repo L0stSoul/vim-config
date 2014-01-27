@@ -230,12 +230,6 @@ if executable('ack-grep')
     let g:unite_source_grep_recursive_opt = ''
 endif
 
-" Unite settings for autocmd
-function! s:unite_settings()
-    " Close Unite on <ESC>
-    nmap <buffer> <ESC> <Plug>(unite_all_exit)
-endfunction
-
 "-------------------------
 " NERDTree
 
@@ -690,9 +684,6 @@ if has("autocmd")
 
         " Enable Folding, uses plugin vim-javascript-syntax
         au FileType javascript* call JavaScriptFold()
-
-        " Special setting for Unite buffer
-        autocmd FileType unite call s:unite_settings()
 
     " Group end
     augroup END
