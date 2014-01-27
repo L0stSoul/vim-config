@@ -207,7 +207,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_source_history_yank_limit = 20
 
 " Hotkey for open history window
-nnoremap <silent><leader>h :Unite -quick-match -auto-quit history/yank<CR>
+nnoremap <silent><leader>h :Unite -quick-match -max-multi-lines=2 -start-insert -auto-quit history/yank<CR>
 
 " Quick tab navigation
 nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
