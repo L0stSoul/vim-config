@@ -253,11 +253,20 @@ nmap <silent> ] :lnext<cr>
 "-------------------------
 " Fugitive
 
-" Hotkeys for this guy
+" Blame on current line
 nmap <silent> <leader>b :.Gblame<cr>
+" Blame on all selected lines in visual mode
 vmap <silent> <leader>b :Gblame<cr>
-nmap <silent> <leader>g :Gstatus<cr>
-nmap <silent> <leader>w :Gwrite<cr>
+" Git status
+nmap <silent> <leader>gst :Gstatus<cr>
+" like git add
+nmap <silent> <leader>gw :Gwrite<cr>
+" git diff
+nmap <silent> <leader>gd :Gdiff<cr>
+" git commit
+nmap <silent> <leader>gci :Gcommit<cr>
+" git commit all
+nmap <silent> <leader>gca :Gcommit -a<cr>
 
 "-------------------------
 " DelimitMate
