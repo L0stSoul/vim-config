@@ -194,9 +194,6 @@ let g:unite_split_rule = 'botright'
 " It less unrelative recent files this way
 let g:unite_source_file_mru_limit = 100
 
-let g:unite_cursor_line_highlight = 'TabLineSel'
-let g:unite_abbr_highlight = 'TabLine'
-
 " Enable history for yanks
 let g:unite_source_history_yank_enable = 1
 
