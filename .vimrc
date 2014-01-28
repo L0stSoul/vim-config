@@ -200,6 +200,18 @@ let g:unite_source_history_yank_enable = 1
 " Make samll limit for yank history, to use it like multiple buffers
 let g:unite_source_history_yank_limit = 20
 
+" Grep options Default for unite + supress error messages
+let g:unite_source_grep_default_opts = '-iRHns'
+
+" If ack exists use it instead of grep
+if executable('ack-grep')
+    " Use ack-grep
+    let g:unite_source_grep_command = 'ack-grep'
+    " Set up ack options
+    let g:unite_source_grep_default_opts = '--no-heading --no-color -a -H'
+    let g:unite_source_grep_recursive_opt = ''
+endif
+
 " Hotkey for open window with most recent files
 nnoremap <silent><leader>m :<C-u>Unite file_mru <CR>
 
@@ -214,18 +226,6 @@ nnoremap <silent><leader>; :Unite file_rec/async -start-insert<CR>
 
 " Unite-grep
 nnoremap <silent><leader>/ :Unite grep:. -no-start-insert -no-quit -keep-focus -wrap<CR>
-
-" Grep options Default for unite + supress error messages
-let g:unite_source_grep_default_opts = '-iRHns'
-
-" If ack exists use it instead of grep
-if executable('ack-grep')
-    " Use ack-grep
-    let g:unite_source_grep_command = 'ack-grep'
-    " Set up ack options
-    let g:unite_source_grep_default_opts = '--no-heading --no-color -a -H'
-    let g:unite_source_grep_recursive_opt = ''
-endif
 
 "-------------------------
 " NERDTree
