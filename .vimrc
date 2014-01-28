@@ -197,14 +197,14 @@ let g:unite_source_file_mru_limit = 100
 let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_abbr_highlight = 'TabLine'
 
-" Hotkey for open window with most recent files
-nnoremap <silent><leader>m :<C-u>Unite file_mru <CR>
-
 " Enable history for yanks
 let g:unite_source_history_yank_enable = 1
 
 " Make samll limit for yank history, to use it like multiple buffers
 let g:unite_source_history_yank_limit = 20
+
+" Hotkey for open window with most recent files
+nnoremap <silent><leader>m :<C-u>Unite file_mru <CR>
 
 " Hotkey for open history window
 nnoremap <silent><leader>h :Unite -quick-match -max-multi-lines=2 -start-insert -auto-quit history/yank<CR>
