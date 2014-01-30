@@ -200,8 +200,8 @@ let g:unite_source_file_mru_limit = 100
 " Enable history for yanks
 let g:unite_source_history_yank_enable = 1
 
-" Make samll limit for yank history, to use it like multiple buffers
-let g:unite_source_history_yank_limit = 20
+" Make samll limit for yank history,
+let g:unite_source_history_yank_limit = 40
 
 " Grep options Default for unite + supress error messages
 let g:unite_source_grep_default_opts = '-iRHns'
