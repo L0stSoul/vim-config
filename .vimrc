@@ -297,7 +297,7 @@ nmap <silent> <leader>td :TernDef<CR>
 " Find all refs for variable under cursor
 nmap <silent> <leader>tr :TernRefs<CR>
 
-" Find smart variable rename
+" Smart variable rename
 nmap <silent> <leader>tn :TernRename<CR>
 
 "-------------------------
