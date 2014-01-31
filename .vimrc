@@ -296,13 +296,7 @@ nmap <silent> <leader>tn :TernRename<CR>
 " Solarized
 
 " Without this solarized have dark background in my terminal
- let g:solarized_termtrans=1
-
-" Setting up light color scheme
-set background=light
-
-" Use solarized colorscheme
-colorscheme solarized
+let g:solarized_termtrans=1
 
 "-------------------------
 " neosnippets
@@ -402,6 +396,18 @@ inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 
 " disable preview in code complete
 set completeopt-=preview
+
+"--------------------------------------------------
+" Colorscheme
+
+" Setting up light color scheme
+set background=light
+
+" Use solarized colorscheme
+colorscheme solarized
+
+" set highlighting for colorcolumn
+highlight ColorColumn ctermbg=lightGrey
 
 "--------------------------------------------------
 " General options
@@ -525,8 +531,6 @@ set textwidth=80
 " higlight column right after max textwidth
 set colorcolumn=+1
 
-" set highlighting for columns in colorcolumn
-highlight ColorColumn ctermbg=lightGrey
 
 "--------------------------------------------------
 " Tab options
