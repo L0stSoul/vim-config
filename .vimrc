@@ -295,8 +295,8 @@ nmap <silent> <leader>tn :TernRename<CR>
 "-------------------------
 " Solarized
 
-" Without this solarized have dark background in my terminal
-let g:solarized_termtrans=1
+" if You have problem with background, uncomment this line
+" let g:solarized_termtrans=1
 
 "-------------------------
 " neosnippets
