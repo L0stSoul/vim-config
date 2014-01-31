@@ -400,11 +400,11 @@ set completeopt-=preview
 "--------------------------------------------------
 " Colorscheme
 
-" Setting up light color scheme
-set background=light
-
 " Use solarized colorscheme
 colorscheme solarized
+
+" Setting up light color scheme
+set background=light
 
 " set highlighting for colorcolumn
 highlight ColorColumn ctermbg=lightGrey
