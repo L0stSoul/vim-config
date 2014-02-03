@@ -651,6 +651,12 @@ set diffopt+=horizontal
 set diffopt+=iwhite
 
 "--------------------------------------------------
+" Hotkeys
+
+" Open new tab
+nmap <silent><leader>to :tabnew .<CR>
+
+"--------------------------------------------------
 " Aautocmd
 
 " It executes specific command when specific events occured
