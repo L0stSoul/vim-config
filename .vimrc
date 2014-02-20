@@ -156,6 +156,9 @@ NeoBundle 'jelera/vim-javascript-syntax'
 " Code complete
 NeoBundle 'Shougo/neocomplcache.vim'
 
+" Most recent files source for unite
+NeoBundle 'Shougo/neomru.vim'
+
 " JShint :)
 " But not necessary with syntastics
 " NeoBundle 'walm/jshint.vim'
