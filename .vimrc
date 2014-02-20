@@ -385,6 +385,9 @@ function! CleverTab()
 endfunction
 inoremap <expr><TAB> CleverTab()
 
+" Undo autocomplete
+inoremap <expr><C-e> neocomplcache#undo_completion()
+
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
