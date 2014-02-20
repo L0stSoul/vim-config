@@ -203,6 +203,8 @@ let g:unite_source_history_yank_limit = 20
 " Grep options Default for unite + supress error messages
 let g:unite_source_grep_default_opts = '-iRHns'
 
+let g:unite_source_rec_max_cache_files = 99999
+
 " If ack exists use it instead of grep
 if executable('ack-grep')
     " Use ack-grep
