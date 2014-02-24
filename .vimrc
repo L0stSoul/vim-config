@@ -4,9 +4,15 @@
 " Turn off filetype plugins before bundles init
 filetype off
 " Auto installing NeoNeoBundle
+let isNpmInstalled = executable("npm")
 let iCanHazNeoBundle=1
 let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
+    if !isNpmInstalled
+        echo "==============================================="
+        echo "Your need to install npm to inable all features"
+        echo "==============================================="
+    endif
     echo "Installing NeoBundle.."
     silent !mkdir -p $HOME/.vim/bundle
     silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
@@ -76,14 +82,14 @@ NeoBundle 'scrooloose/syntastic'
 if !executable("jshint")
     let g:syntastic_jshint_exec = '~/.vim/node_modules/.bin/jshint'
     "let g:syntastic_javascript_jshint_exec = '~/.vim/node_modules/.bin/jshint'
-    if !executable(expand(g:syntastic_jshint_exec))
+    if isNpmInstalled && !executable(expand(g:syntastic_jshint_exec))
         silent ! echo 'Installing jshint' && npm --prefix ~/.vim/ install jshint
     endif
 endif
 " Path to csslint if it not installed globally, then use local installation
 if !executable("csslint")
     let g:syntastic_css_csslint_exec='~/.vim/node_modules/.bin/csslint'
-    if !executable(expand(g:syntastic_css_csslint_exec))
+    if isNpmInstalled && !executable(expand(g:syntastic_css_csslint_exec))
         silent ! echo 'Installing csslint' && npm --prefix ~/.vim/ install csslint
     endif
 endif
@@ -97,7 +103,7 @@ NeoBundle 'scrooloose/nerdtree'
 if has("python")
     NeoBundle 'marijnh/tern_for_vim'
     " install node dependencies for tern
-    if isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
+    if isNpmInstalled && isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
         silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
     endif
 endif
@@ -167,6 +173,7 @@ NeoBundle 'Shougo/neomru.vim'
 if iCanHazNeoBundle == 0
     echo 'Installing Bundles, please ignore key map error messages'
     :NeoBundleInstall
+    :so $MYVIMRC
 endif
 
 " Enable Indent in plugins
