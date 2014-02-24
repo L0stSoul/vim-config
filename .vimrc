@@ -248,6 +248,9 @@ nmap <silent> <leader>f :NERDTreeFind<CR>
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
+" For correct works of next/previous error navigation
+let g:syntastic_always_populate_loc_list = 1
+
 " open quicfix window with all error found
 nmap <silent> <leader>ll :Errors<cr>
 " previous syntastic error
