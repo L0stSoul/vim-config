@@ -249,7 +249,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
 
 " open quicfix window with all error found
-nmap <silent> <leader>ll :lopen<cr>
+nmap <silent> <leader>ll :Errors<cr>
 " previous syntastic error
 nmap <silent> [ :lprev<cr>
 " next syntastic error
