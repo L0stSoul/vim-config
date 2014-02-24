@@ -200,8 +200,8 @@ let g:unite_source_file_mru_limit = 100
 " Enable history for yanks
 let g:unite_source_history_yank_enable = 1
 
-" Make samll limit for yank history, to use it like multiple buffers
-let g:unite_source_history_yank_limit = 20
+" Make samll limit for yank history,
+let g:unite_source_history_yank_limit = 40
 
 " Grep options Default for unite + supress error messages
 let g:unite_source_grep_default_opts = '-iRHns'
@@ -269,9 +269,12 @@ nmap <silent> <leader>gw :Gwrite<cr>
 " git diff
 nmap <silent> <leader>gd :Gdiff<cr>
 " git commit
-nmap <silent> <leader>gci :Gcommit<cr>
+nmap <silent> <leader>gc :Gcommit<cr>
 " git commit all
 nmap <silent> <leader>gca :Gcommit -a<cr>
+" git fixup previous commit
+nmap <silent> <leader>gcf :Gcommit -a --amend<cr>
+
 
 "-------------------------
 " DelimitMate
@@ -294,7 +297,7 @@ nmap <silent> <leader>td :TernDef<CR>
 " Find all refs for variable under cursor
 nmap <silent> <leader>tr :TernRefs<CR>
 
-" Find smart variable rename
+" Smart variable rename
 nmap <silent> <leader>tn :TernRename<CR>
 
 "-------------------------
