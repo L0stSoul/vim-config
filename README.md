@@ -3,42 +3,42 @@
 <img src="http://i.imgur.com/ElOEHZ3.png"/>
 
 ### Features
-* Only one file, you don't need manually run any install script
-* Integration with Git
-* Integration with grep/ack
-* Automatic syntax and codestyle checks
-* Smart autocomplete
-* Tweeks for easier navigation
-* Snippets
-* Fully documented
-* Optimized for web development
-* Quick Tab navigation, Most recent files list, fuzzy search, and many other features (see full features list)
+* Only one file, you don't need to run any installation script.
+* Integration with Git.
+* Integration with grep/ack.
+* Automatic syntax and codestyle checks.
+* Smart autocomplete.
+* Tweeks for easier navigation.
+* Snippets.
+* Fully documented.
+* Optimized for web development.
+* Quick Tab navigation, recent files list, fuzzy search, and other (see the full list of features).
 
 ### Hotkeys
-In Vim there is ```leader``` key, which by default &mdash; ```\``` , but you can change it in any
+In Vim there is the ```leader``` key, which is by default ```\``` , but you can change it in any
 time.
 
 Action | Hotkey
 --------------------------------------------------------- | -----------------
 **▶ File operations**                                     |
-Most recent Files List                                    | ```leader m```
+Recent Files List                                         | ```leader m```
 FuzzyFinder fo files                                      | ```leader ;```
 Ack/Grep                                                  | ```leader /```
 Show current file in NERDtree in a split                  | ```leader f```
-**▶ Jshint/csslint navigation**                           |
+**▶ JShint/CSSlint navigation**                           |
 Show error window                                         | ```leader ll```
-Go to next string with error/warning                      | ```]```
-Go to previous string with error/warning                  | ```[```
-**▶ Javascript advanced features (if Tern is available)** |
-If variable under cursor, go to it's definition           | ```leader td```
-Find all refs for variable under cursor                   | ```leader tr```
-Smart rename variable and all references on it            | ```leader tn```
-**▶ Code complete**                                       |
+Go to the next string with error/warning                  | ```]```
+Go to the previous string with error/warning              | ```[```
+**▶ Advanced Javascript features (if Tern is available)** |
+If variable is under cursor, go to its definition         | ```leader td```
+Find all refs for the variable under cursor               | ```leader tr```
+Smart rename a variable and all references to it          | ```leader tn```
+**▶ Code completion**                                       |
 Start autocompletion                                      | ```tab```
 Undo autocompletion                                       | ```ctrl+e```
 Expand snippet                                            | ```Enter```
 **▶ Integration with Git**                                |
-Git blame on current line or all selected lines           | ```leader b```
+Git blame on the current line or all selected line        | ```leader b```
 Git status                                                | ```leader gst```
 Git add/checkout file                                     | ```leader gw```
 Git diff                                                  | ```leader gd```
@@ -46,20 +46,20 @@ Git commit                                                | ```leader gc```
 Git commit all                                            | ```leader gca```
 Git commit -a --amend                                     | ```leader gcf```
 **▶ Other**                                               |
-Toggle comment on current line                            | ```gcc```
+Toggle comment on the current line                        | ```gcc```
 Toggle comments                                           | ```gc in vicsual mode, or gc + motion```
-Change surrounding symbols(like [ or ")                   | ```cs (what)(to what)```
-Toggle fold                                               | ```space```
+Change surrounding symbols (like [ or ")                  | ```cs (what)(to what)```
+Toggle folding                                            | ```space```
 Toggle insert mode                                        | ```leader p```
-Yanking history with quick navigation                     | ```leader h```
+Yanking history with Quick navigation                     | ```leader h```
 Replace                                                   | ```leader s```
 Move between splits                                       | ```leader w```
 Quick tab navigation                                      | ```leader '```
 
-### Colorscheme
+### Color scheme
 
-I use colorscheme Solarized, light version is enable by default .
-If you want dark one, you have to change this lines:
+I use color scheme “Solarized”, the light version is enabled by default.
+If you want the dark one, you have to change the following lines:
 ```
 " Setting up light color scheme
 set background=light
@@ -68,7 +68,7 @@ set background=light
 highlight ColorColumn ctermbg=lightGrey
 ```
 
-Into this:
+into those:
 ```
 " Setting up light color scheme
 set background=dark
@@ -78,78 +78,77 @@ highlight ColorColumn ctermbg=darkGrey
 ```
 
 ### Full features list
-#### Easy install
-You just need to place ```.vimrc``` in your home directory, that's all. All
+#### Easy installation
+You just need to place ```.vimrc``` in your home directory, and that's all. All
 plugins and dependencies will install automatically.
 #### Folding
-Folding is disable by default, but you may fold any part of js code according to
-syntax with just ```space``` key.
+Folding is disabled by default, but you may fold any part of JS code according to
+the syntax with just ```Space``` key.
 #### Remember your last editing sessions
-When you open file, which you previously edits vim will open it in the exact
+When you open file, which you used to edit, vim will open it in the exact
 same line.
 #### Vertical ruler
-There are vertical line that indicates 80 character border, you can see it at
-screenshrot above
+There are a vertical line indicating 80 character limit, it can be seen it on
+the screenshrot above.
 #### Smart search
-Vim built-in search are ignore case by default, but if you use mixed
-lower/Upper case as search phrase, he start pay attention to case
-#### Quick plugin install &mdash; [Neobundle](https://github.com/Shougo/neobundle.vim)
-It's a bundler which helps me to install other bundles, it's quite smart and work better then
+Vim built-in search ignores case by default, but if you use mixed
+lower/upper-case as a search phrase, it'll be case-sensitive.
+#### Quick plugin install &mdash; [Neobundle](https://github.com/Shougo/neobundle.vim)
+It's a bundler, which helps to install other bundles. It's quite smart and works better then
 vundle.
-#### Colorscheme &mdash; [Solarized](https://github.com/altercation/vim-colors-solarized)
-Popular light/dark colorscheme
+#### Colorscheme &mdash; [Solarized](https://github.com/altercation/vim-colors-solarized)
+A popular light/dark colorscheme.
 
 ![Screen](https://raw2.github.com/altercation/solarized/master/img/solarized-vim.png)
-#### Snippets &mdash; [Neosnippet](https://github.com/Shougo/neosnippet.vim) & [vim-snippets](https://github.com/honza/vim-snippets)
-Neosnippet - It's a snippets engine itself, and Vim-snippets - it's default snippets collection
+#### Snippets &mdash; [Neosnippet](https://github.com/Shougo/neosnippet.vim) & [vim-snippets](https://github.com/honza/vim-snippets)
+Neosnippet is a snippet engine itself, and Vim-snippets &mdash; its default snippets collection.
 
-This config features snippets, which can be autocompleted by ```tab```,
-аnd expanded by ```Enter``` you can view a full list of snippets [here](https://github.com/honza/vim-snippets/tree/master/snippets)
+This config features snippets, which can be autocompleted by ```tab```
+аnd expanded by ```Enter```. Here is [a full list of snippets](https://github.com/honza/vim-snippets/tree/master/snippets).
 
-#### Smart panels &mdash; [Unite](https://github.com/Shougo/unite.vim)
-It provide such features as:
-* Most recent files list (with help of [neomru](https://github.com/Shougo/neomru.vim))
-* Quick tab navigation
-* Async fuzzySearch (with help of [vimproc](https://github.com/Shougo/vimproc.vim))
-* Grep/Ack integration
-* Yank/History
+#### Smart panels &mdash; [Unite](https://github.com/Shougo/unite.vim)
+Provides such features as:
+* Recent files list (with help of [neomru](https://github.com/Shougo/neomru.vim)).
+* Quick tab navigation.
+* Async fuzzySearch (with help of [vimproc](https://github.com/Shougo/vimproc.vim)).
+* Grep/Ack integration.
+* Yank/History.
 
-#### On-the-go Syntax checker &mdash; [Syntastic](https://github.com/scrooloose/syntastic)
-This plugin, integrate many spellchekers and syntax checkers, and manage to tell
-you about errors when you save your code, or open new file.
+#### On-the-go Syntax checker &mdash; [Syntastic](https://github.com/scrooloose/syntastic)
+This plugin integrates many spellchekers and syntax checkers and tells
+you about the errors on saving your code or opening a new file.
 
-by default this config use npm-packets [jshint](http://www.jshint.com/) and [css-lint](http://csslint.net/) for check js and css files on the fly.
+By default this config use npm-packets [jshint](http://www.jshint.com/) and [css-lint](http://csslint.net/) to check js and css files on the fly.
 
-#### Advanced file-system navigation &mdash; [NERDTree](https://github.com/scrooloose/nerdtree)
-Imroved file-system navigation. Looks pretty much like standart one but with some kool features like tree navigation, bookmarks, and some more.
+#### Advanced file-system navigation &mdash; [NERDTree](https://github.com/scrooloose/nerdtree)
+Imroved file-system navigation. Looks pretty much like the standard one but with some cool features like tree navigation, bookmarks, and some more.
 
-#### Improved status line &mdash; [Airline](https://github.com/bling/vim-airline)
-Nice and good loking status bar for vim, with integration with syntastic and fugitive.
+#### Improved status line &mdash; [Airline](https://github.com/bling/vim-airline)
+Nice and good loking status bar for vim, has integration with syntastic and fugitive.
 
-#### Good keyword completion system &mdash; [Neocomplcache](https://github.com/Shougo/neocomplcache.vim)
-Provide smart autocompletion 
+#### Good keyword completion system &mdash; [Neocomplcache](https://github.com/Shougo/neocomplcache.vim)
+Provides smart autocompletion.
 
-#### Integration with git &mdash; [Fugitive](https://github.com/tpope/vim-fugitive)
-Provide full integration wit git.
+#### Integration with git &mdash; [Fugitive](https://github.com/tpope/vim-fugitive)
+Provides full integration wit git.
 
-#### Advanced javascript features &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
-Provide advanced javascript feature like smart variable rename, find variable references, and go to variable. if you use .ternconf - it improve autocompletion in your js files too.
+#### Advanced javascript features &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
+Provides advanced javascript features like Smart variable rename, Find variable references, and Go to variable. If you use .ternconf &mdash; it'll improve autocompletion in your js files as well.
 #### Improved editing
-* [DelimitMate](https://github.com/Raimondi/delimitMate) &mdash; provides automatic closing of quotes, parenthesis, brackets, etc., besides some other related features that should make your time in insert mode a little bit easie.
-* [tcomment](https://github.com/tomtom/tcomment_vim) &mdash; tcomment provides easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
-* [surround](https://github.com/tpope/vim-surround) &mdash; is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
-* [MatchTag](https://github.com/gregsexton/MatchTag) &mdash; highlights the matching HTML tag when the cursor is positioned on a tag. It works in much the same way as the MatchParen plugin.
+* [DelimitMate](https://github.com/Raimondi/delimitMate) &mdash; provides automatic closing of quotes, parenthesis, brackets, etc., besides some other related features that should make your time in insert mode a little bit easier.
+* [tcomment](https://github.com/tomtom/tcomment_vim) &mdash; tcomment provides easy-to-use, file-type sensible comments for Vim. It can handle embedded syntax.
+* [surround](https://github.com/tpope/vim-surround) is all about “surroundings”: parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+* [MatchTag](https://github.com/gregsexton/MatchTag) &mdash; highlights the matching HTML tag when the cursor is positioned on a tag. It works in much the same way as the MatchParen plugin.
 
 ### Installation
 
-To install just clone ther repo, and place symlink to .vimrc in your home directory. e.g.
+To install just clone the repo, and place symlink to .vimrc in your home directory. E.g.:
 ```
  git clone https://github.com/L0stSoul/vim-config.git && ln -s ~/vim-config/.vimrc ~/
 ```
-For some features you need [npm](http://en.wikipedia.org/wiki/Npm_(software)) installed
+[NPM](http://en.wikipedia.org/wiki/Npm_(software)) is needed to be installed for some features.
 
 ### Pro Tips
 
-If you want to make some changes, just fork the repo.
-If this changes will be helpfull for others, don't forget to share it through pull request :)
-
+If you want to make some changes, just fork the repo.
+If this changes will be helpfull for others, don't forget to share it through a pull request :).
