@@ -89,7 +89,7 @@ When you open file, which you used to edit, vim will open it in the exact
 same line.
 #### Vertical ruler
 There is a vertical line indicating 80 character limit, it can be seen on
-the screenshrot above.
+the screenshot above.
 #### Smart search
 Vim built-in search ignores case by default, but if you use mixed
 lower/upper-case as a search phrase, it'll be case-sensitive.
