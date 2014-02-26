@@ -133,7 +133,7 @@ Provide smart autocompletion
 Provide full integration wit git.
 
 #### Advanced javascript features &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
-Provide advanced javascritp feature like smart variable rename, find variable references, and go to variable. if you use .ternconf - it improve autocompletion in your js files to.
+Provide advanced javascript feature like smart variable rename, find variable references, and go to variable. if you use .ternconf - it improve autocompletion in your js files too.
 #### Improved editing
 * [DelimitMate](https://github.com/Raimondi/delimitMate) &mdash; provides automatic closing of quotes, parenthesis, brackets, etc., besides some other related features that should make your time in insert mode a little bit easie.
 * [tcomment](https://github.com/tomtom/tcomment_vim) &mdash; tcomment provides easy to use, file-type sensible comments for Vim. It can handle embedded syntax.
