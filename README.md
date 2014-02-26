@@ -52,6 +52,8 @@ Change surrounding symbols(like [ or ")                   | ```cs (what)(to what
 Toggle fold                                               | ```space```
 Toggle insert mode                                        | ```leader p```
 Yanking history with quick navigation                     | ```leader h```
+Replace                                                   | ```leader s```
+Move between splits                                       | ```leader w```
 Quick tab navigation                                      | ```leader '```
 
 ### Colorscheme
