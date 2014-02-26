@@ -677,6 +677,13 @@ set diffopt+=iwhite
 " Open new tab
 nmap <silent><leader>to :tabnew .<CR>
 
+" Replace
+nmap <leader>s :%s//<left>
+vmap <leader>s :s//<left>
+
+" Moving between splits
+nmap <leader>w <C-w>w
+
 "--------------------------------------------------
 " Aautocmd
 
