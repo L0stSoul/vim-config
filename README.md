@@ -142,7 +142,10 @@ Provide advanced javascritp feature like smart variable rename, find variable re
 
 ### Installation
 
-To install just place symlink to .vimrc in your home directory.
+To install just clone ther repo, and place symlink to .vimrc in your home directory. like this:
+```
+ git clone https://github.com/L0stSoul/vim-config.git && ln -s ~/vim-config/.vimrc ~/
+```
 For some features you need [npm](http://en.wikipedia.org/wiki/Npm_(software)) installed
 
 ### Pro Tips
