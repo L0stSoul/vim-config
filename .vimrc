@@ -10,7 +10,7 @@ let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
     if !isNpmInstalled
         echo "==============================================="
-        echo "Your need to install npm to inable all features"
+        echo "Your need to install npm to enable all features"
         echo "==============================================="
     endif
     echo "Installing NeoBundle.."
