@@ -54,6 +54,7 @@ Toggle insert mode                                        | ```leader p```
 Yanking history with Quick navigation                     | ```leader h```
 Replace                                                   | ```leader s```
 Move between splits                                       | ```leader w```
+ESC                                                       | ```j+k (simultaneously)```
 Quick tab navigation                                      | ```leader '```
 
 ### Color scheme
