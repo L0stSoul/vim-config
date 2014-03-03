@@ -165,6 +165,9 @@ NeoBundle 'Shougo/neocomplcache.vim'
 " Most recent files source for unite
 NeoBundle 'Shougo/neomru.vim'
 
+" Plugin for chord mappings
+NeoBundle 'kana/vim-arpeggio'
+
 " JShint :)
 " But not necessary with syntastics
 " NeoBundle 'walm/jshint.vim'
@@ -420,6 +423,12 @@ inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 
 " disable preview in code complete
 set completeopt-=preview
+
+"-------------------------
+" Arpeggio
+
+" map jk to escape
+call arpeggio#map('i', '', 0, 'jk', '<ESC>')
 
 "--------------------------------------------------
 " Colorscheme
