@@ -15,53 +15,53 @@
 * Quick Tab navigation, recent files list, fuzzy search, and other (see the full list of features).
 
 ### Hotkeys
-In Vim there is the ```leader``` key, which is by default ```\``` , but you can change it in any
+In Vim there is the `leader` key, which is by default `\` , but you can change it in any
 time.
 
 Action | Hotkey
 --------------------------------------------------------- | -----------------
 **▶ File operations**                                     |
-Recent Files List                                         | ```leader m```
-FuzzyFinder fo files                                      | ```leader ;```
-Ack/Grep                                                  | ```leader /```
-Show current file in NERDtree in a split                  | ```leader f```
+Recent Files List                                         | `leader m`
+FuzzyFinder fo files                                      | `leader ;`
+Ack/Grep                                                  | `leader /`
+Show current file in NERDtree in a split                  | `leader f`
 **▶ JShint/CSSlint navigation**                           |
-Show error window                                         | ```leader ll```
-Go to the next line with error/warning                    | ```]```
-Go to the previous line with error/warning                | ```[```
+Show error window                                         | `leader ll`
+Go to the next line with error/warning                    | `]`
+Go to the previous line with error/warning                | `[`
 **▶ Advanced Javascript features (if Tern is available)** |
-If variable is under cursor, go to its definition         | ```leader td```
-Find all refs for the variable under cursor               | ```leader tr```
-Smart rename a variable and all references to it          | ```leader tn```
+If variable is under cursor, go to its definition         | `leader td`
+Find all refs for the variable under cursor               | `leader tr`
+Smart rename a variable and all references to it          | `leader tn`
 **▶ Code completion**                                     |
-Start autocompletion                                      | ```tab```
-Undo autocompletion                                       | ```ctrl+e```
-Expand snippet                                            | ```Enter```
+Start autocompletion                                      | `tab`
+Undo autocompletion                                       | `ctrl+e`
+Expand snippet                                            | `Enter`
 **▶ Integration with Git**                                |
-Git blame on the current line or all selected line        | ```leader b```
-Git status                                                | ```leader gst```
-Git add/checkout file                                     | ```leader gw```
-Git diff                                                  | ```leader gd```
-Git commit                                                | ```leader gc```
-Git commit all                                            | ```leader gca```
-Git commit -a --amend                                     | ```leader gcf```
+Git blame on the current line or all selected line        | `leader b`
+Git status                                                | `leader gst`
+Git add/checkout file                                     | `leader gw`
+Git diff                                                  | `leader gd`
+Git commit                                                | `leader gc`
+Git commit all                                            | `leader gca`
+Git commit -a --amend                                     | `leader gcf`
 **▶ Other**                                               |
-Toggle comment on the current line                        | ```gcc```
-Toggle comments                                           | ```gc in vicsual mode, or gc + motion```
-Change surrounding symbols (like [ or ")                  | ```cs (what)(to what)```
-Toggle folding                                            | ```space```
-Toggle insert mode                                        | ```leader p```
-Yanking history with Quick navigation                     | ```leader h```
-Replace                                                   | ```leader s```
-Move between splits                                       | ```leader w```
-ESC                                                       | ```j+k (simultaneously)```
-Quick tab navigation                                      | ```leader '```
+Toggle comment on the current line                        | `gcc`
+Toggle comments                                           | `gc in visual mode, or gc + motion`
+Change surrounding symbols (like [ or ")                  | `cs (what)(to what)`
+Toggle folding                                            | `space`
+Toggle insert mode                                        | `leader p`
+Yanking history with Quick navigation                     | `leader h`
+Replace                                                   | `leader s`
+Move between splits                                       | `leader w`
+ESC                                                       | `j+k (simultaneously)`
+Quick tab navigation                                      | `leader '`
 
 ### Color scheme
 
 I use color scheme “Solarized”, the light version is enabled by default.
 If you want the dark one, you have to change the following lines:
-```
+```vim
 " Setting up light color scheme
 set background=light
 
@@ -70,7 +70,7 @@ highlight ColorColumn ctermbg=lightGrey
 ```
 
 to those:
-```
+```vim
 " Setting up light color scheme
 set background=dark
 
@@ -80,11 +80,11 @@ highlight ColorColumn ctermbg=darkGrey
 
 ### Full features list
 #### Easy installation
-You just need to place ```.vimrc``` in your home directory, and that's all. All
+You just need to place `.vimrc` in your home directory, and that's all. All
 plugins and dependencies will install automatically upon first vim launch.
 #### Folding
 Folding is disabled by default, but you may fold any part of JS code according to
-the syntax with just ```Space``` key.
+the syntax with just `Space` key.
 #### Remember your last editing sessions
 When you open file, which you used editted last, vim will open it on the exact
 same line.
@@ -104,8 +104,8 @@ A popular light/dark color scheme.
 #### Snippets &mdash; [Neosnippet](https://github.com/Shougo/neosnippet.vim) & [vim-snippets](https://github.com/honza/vim-snippets)
 Neosnippet is a snippet engine itself, and Vim-snippets &mdash; it’s default snippets collection.
 
-This config features snippets, which can be autocompleted by ```tab```
-аnd expanded by ```Enter```. Here is [a full list of snippets](https://github.com/honza/vim-snippets/tree/master/snippets).
+This config features snippets, which can be autocompleted by `tab`
+аnd expanded by `Enter`. Here is [a full list of snippets](https://github.com/honza/vim-snippets/tree/master/snippets).
 
 #### Smart panels &mdash; [Unite](https://github.com/Shougo/unite.vim)
 Provides features like:
@@ -134,7 +134,7 @@ Provides smart autocompletion.
 Provides full integration wit git.
 
 #### Advanced javascript features &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
-Provides advanced javascript features like Smart variable rename, Find variable references, and Go to variable. If you use ```.ternconf``` &mdash; it'll improve autocompletion in your js files as well.
+Provides advanced javascript features like Smart variable rename, Find variable references, and Go to variable. If you use `.ternconf` &mdash; it'll improve autocompletion in your js files as well.
 #### Improved editing
 * [DelimitMate](https://github.com/Raimondi/delimitMate) &mdash; provides automatic closing of quotes, parenthesis, brackets, etc., also has some other related features that will make your time in insert mode a little bit easier.
 * [tcomment](https://github.com/tomtom/tcomment_vim) &mdash; tcomment provides easy-to-use, file-type sensible comments for Vim. It can handle embedded syntax.
@@ -144,7 +144,7 @@ Provides advanced javascript features like Smart variable rename, Find variable 
 ### Installation
 
 To install just clone the repo, and place symlink to .vimrc in your home directory. E.g.:
-```
+```bash
  git clone https://github.com/L0stSoul/vim-config.git && ln -s ~/vim-config/.vimrc ~/
 ```
 [NPM](http://en.wikipedia.org/wiki/Npm_(software)) is required for some features.
