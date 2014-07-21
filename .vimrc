@@ -82,7 +82,7 @@ NeoBundle 'scrooloose/syntastic'
 if !executable("jshint")
     "let g:syntastic_jshint_exec = '~/.vim/node_modules/.bin/jshint'
     let g:syntastic_javascript_jshint_exec = '~/.vim/node_modules/.bin/jshint'
-    if isNpmInstalled && !executable(expand(g:syntastic_jshint_exec))
+    if isNpmInstalled && !executable(expand(g:syntastic_javascript_jshint_exec))
         silent ! echo 'Installing jshint' && npm --prefix ~/.vim/ install jshint
     endif
 endif
@@ -237,10 +237,12 @@ nnoremap <silent><leader>h :Unite -quick-match -max-multi-lines=2 -start-insert 
 nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
 
 " Fuzzy find files
-nnoremap <silent><leader>; :Unite file_rec/async -start-insert<CR>
+nnoremap <silent><leader>; :Unite file_rec/async:! -buffer-name=files -start-insert<CR>
 
 " Unite-grep
 nnoremap <silent><leader>/ :Unite grep:. -no-start-insert -no-quit -keep-focus -wrap<CR>
+
+
 
 "-------------------------
 " NERDTree
