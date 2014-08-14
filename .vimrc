@@ -159,6 +159,9 @@ NeoBundle 'bling/vim-airline'
 " and good-looking javascritp code
 NeoBundle 'jelera/vim-javascript-syntax'
 
+" Improved json syntax highlighting
+NeoBundle 'elzr/vim-json'
+
 " Code complete
 NeoBundle 'Shougo/neocomplcache.vim'
 
@@ -723,7 +726,7 @@ if has("autocmd")
         au FileType less set ft=less.css
         au BufWinEnter * if line2byte(line("$") + 1) > 100000 | syntax clear | endif
         au BufRead,BufNewFile *.js set ft=javascript.javascript-jquery
-        au BufRead,BufNewFile *.json set ft=javascript
+        au BufRead,BufNewFile *.json set ft=json
         " Execute python \ -mjson.tool for autoformatting *.json
         au BufRead,BufNewFile *.json set equalprg=python\ -mjson.tool
         au BufRead,BufNewFile *.bemhtml set ft=javascript
