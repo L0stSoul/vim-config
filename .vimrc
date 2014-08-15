@@ -315,6 +315,8 @@ let delimitMate_expand_space = 1
 "-------------------------
 " Tern_for_vim
 
+let tern_show_signature_in_pum = 1
+
 " Go to definition
 nmap <silent> <leader>td :TernDef<CR>
 
