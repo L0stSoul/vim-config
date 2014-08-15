@@ -269,6 +269,9 @@ let g:syntastic_enable_signs=1
 " For correct works of next/previous error navigation
 let g:syntastic_always_populate_loc_list = 1
 
+" check json files with jshint
+let g:syntastic_filetype_map = { "json": "javascript", }
+
 " open quicfix window with all error found
 nmap <silent> <leader>ll :Errors<cr>
 " previous syntastic error
