@@ -564,7 +564,7 @@ set number
 set cursorline
 
 " maximum text length at 80 symbols, vim automatically breaks longer lines
-set textwidth=80
+" set textwidth=80
 
 " higlight column right after max textwidth
 set colorcolumn=+1
@@ -728,7 +728,6 @@ if has("autocmd")
         au BufRead,BufNewFile *.js set ft=javascript.javascript-jquery
         au BufRead,BufNewFile *.json set ft=json
         " Execute python \ -mjson.tool for autoformatting *.json
-        au BufRead,BufNewFile *.json set equalprg=python\ -mjson.tool
         au BufRead,BufNewFile *.bemhtml set ft=javascript
         au BufRead,BufNewFile *.xjst set ft=javascript
         au BufRead,BufNewFile *.tt2 set ft=tt2
