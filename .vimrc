@@ -159,6 +159,9 @@ NeoBundle 'bling/vim-airline'
 " and good-looking javascritp code
 NeoBundle 'jelera/vim-javascript-syntax'
 
+"code-completion for jquery, lodash e.t.c
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+
 " Improved json syntax highlighting
 NeoBundle 'elzr/vim-json'
 
