@@ -1,6 +1,10 @@
 "--------------------------------------------------
 " NeoBundle Init
 
+" Use 256 colors in vim
+" some plugins not work without it
+set t_Co=256
+
 " Turn off filetype plugins before bundles init
 filetype off
 " Auto installing NeoNeoBundle
@@ -487,10 +491,6 @@ set termencoding=utf-8
 if &modifiable
     set fileformat=unix
 endif
-
-" Use 256 colors in vim
-" vim-airline not work without it
-set t_Co=256
 
 " Enable Tcl interface. Not shure what is exactly mean.
 " set infercase
