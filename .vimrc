@@ -324,9 +324,6 @@ let delimitMate_expand_space = 1
 
 let tern_show_signature_in_pum = 1
 
-" Go to definition
-nmap <silent> <leader>td :TernDef<CR>
-
 " Find all refs for variable under cursor
 nmap <silent> <leader>tr :TernRefs<CR>
 
