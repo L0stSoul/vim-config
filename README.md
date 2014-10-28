@@ -30,7 +30,6 @@ Show error window                                         | `leader ll`
 Go to the next line with error/warning                    | `]`
 Go to the previous line with error/warning                | `[`
 **▶ Advanced Javascript features (if Tern is available)** |
-If variable is under cursor, go to its definition         | `leader td`
 Find all refs for the variable under cursor               | `leader tr`
 Smart rename a variable and all references to it          | `leader tn`
 **▶ Code completion**                                     |
