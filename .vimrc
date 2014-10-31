@@ -133,6 +133,9 @@ NeoBundle 'tpope/vim-repeat'
 " and ds{what} - remove them
 NeoBundle 'tpope/vim-surround'
 
+" Syntax highlighting for Stylus
+NeoBundle 'wavded/vim-stylus'
+
 " Add aditional hotkeys
 " Looks like i'm not using it at all
 "NeoBundle 'tpope/vim-unimpaired'
