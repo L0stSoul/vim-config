@@ -28,7 +28,7 @@ if has('vim_starting')
     set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand($HOME.'/.vim/bundle/'))
+call neobundle#begin(expand($HOME.'/.vim/bundle/'))
 
 " Determine make or gmake will be used for making additional deps for Bundles
 let g:make = 'gmake'
@@ -185,12 +185,7 @@ NeoBundle 'kana/vim-arpeggio'
 " But not necessary with syntastics
 " NeoBundle 'walm/jshint.vim'
 
-" Installing bundles for the first time
-if iCanHazNeoBundle == 0
-    echo 'Installing Bundles, please ignore key map error messages'
-    :NeoBundleInstall
-    :so $MYVIMRC
-endif
+call neobundle#end()
 
 " Enable Indent in plugins
 filetype plugin indent on
