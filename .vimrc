@@ -143,6 +143,9 @@ NeoBundle 'wavded/vim-stylus'
 " HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim.
 NeoBundle 'othree/html5.vim'
 
+" Syntax highlighting for .jsx (js files for react js)
+NeoBundle 'mxw/vim-jsx'
+
 " Highlights the matching HTML tag when the cursor
 " is positioned on a tag.
 NeoBundle 'gregsexton/MatchTag'
