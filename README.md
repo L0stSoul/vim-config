@@ -99,7 +99,7 @@ vundle.
 #### Color Scheme &mdash; [Solarized](https://github.com/altercation/vim-colors-solarized)
 A popular light/dark color scheme.
 
-![Screen](https://raw2.github.com/altercation/solarized/master/img/solarized-vim.png)
+![Screen](https://raw.githubusercontent.com/altercation/solarized/master/img/solarized-vim.png)
 #### Snippets &mdash; [Neosnippet](https://github.com/Shougo/neosnippet.vim) & [vim-snippets](https://github.com/honza/vim-snippets)
 Neosnippet is a snippet engine itself, and Vim-snippets &mdash; it’s default snippets collection.
 
