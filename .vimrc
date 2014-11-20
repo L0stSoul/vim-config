@@ -191,7 +191,7 @@ NeoBundle 'kana/vim-arpeggio'
 call neobundle#end()
 
 " Enable Indent in plugins
-filetype plugin indent on
+" filetype plugin indent on
 " Enable syntax highlighting
 syntax on
 
