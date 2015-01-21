@@ -69,6 +69,9 @@ NeoBundle 'Shougo/neosnippet'
 " Default snippets
 NeoBundle 'honza/vim-snippets'
 
+" Dirr diff
+NeoBundle 'vim-scripts/DirDiff.vim'
+
 " Colorscheme solarazied for vim
 NeoBundle 'altercation/vim-colors-solarized'
 
