@@ -156,6 +156,12 @@ NeoBundle 'gregsexton/MatchTag'
 " Add Support css3 property
 NeoBundle 'hail2u/vim-css3-syntax'
 
+" Add support for mustache/handlebars
+NeoBundle 'mustache/vim-mustache-handlebars'
+
+" Automatically add closing tags in html-like formats
+NeoBundle 'alvan/vim-closetag'
+
 " Smart indent for javascript
 " http://www.vim.org/scripts/script.php?script_id=3081
 NeoBundle 'lukaszb/vim-web-indent'
@@ -322,6 +328,21 @@ let delimitMate_expand_cr = 1
 " Delimitmate place cursor correctly in singleline pairs e.g.
 " if x - cursor if you press space in {x} result will be { x } instead of { x}
 let delimitMate_expand_space = 1
+
+" Without this we can't disable delimitMate for specific file types
+let loaded_delimitMate = 1
+
+"-------------------------
+" vim-mustache-handlebars
+
+" Enable shortcuts for things like {{{ an {{
+let g:mustache_abbreviations = 1
+
+"-------------------------
+" vim-closetag
+
+" Enable for files with this extensions
+let g:closetag_filenames = "*.handlebars,*.html,*.xhtml,*.phtml"
 
 "-------------------------
 " Tern_for_vim
@@ -753,6 +774,8 @@ if has("autocmd")
 
         " Enable Folding, uses plugin vim-javascript-syntax
         au FileType javascript* call JavaScriptFold()
+        au FileType html let b:loaded_delimitMate = 1
+        au FileType handlebars let b:loaded_delimitMate = 1
 
     " Group end
     augroup END
