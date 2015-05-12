@@ -107,12 +107,13 @@ endif
 NeoBundle 'scrooloose/nerdtree'
 
 " Provide smart autocomplete results for javascript, and some usefull commands
-if has("python")
-    NeoBundle 'marijnh/tern_for_vim'
-    " install node dependencies for tern
-    if isNpmInstalled && isdirectory(expand('~/.vim/bundle/tern_for_vim')) && !isdirectory(expand('~/.vim/bundle/tern_for_vim/node_modules'))
-        silent ! echo 'Installing tern' && npm --prefix ~/.vim/bundle/tern_for_vim install
-    endif
+if has("python") && isNpmInstalled
+    " install tern and node dependencies for tern
+    NeoBundle 'marijnh/tern_for_vim', {
+\       'build' : {
+\          'unix' : 'npm install'
+\       }
+\   }
 endif
 
 " Add smart commands for comments like:
@@ -206,6 +207,18 @@ syntax on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
+
+" disable annoying prompt on initial bundle install
+set nomore
+
+let g:neobundle#install_max_processes=2
+
+" Install all bundles on first launch
+if !iCanHazNeoBundle
+    NeoBundleInstall
+endif
+
+" Check new bundles on startup
 NeoBundleCheck
 
 "--------------------------------------------------
