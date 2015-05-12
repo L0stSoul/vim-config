@@ -211,6 +211,7 @@ syntax on
 " disable annoying prompt on initial bundle install
 set nomore
 
+" fix issue when github refuse connections on initial install
 let g:neobundle#install_max_processes=2
 
 " Install all bundles on first launch
