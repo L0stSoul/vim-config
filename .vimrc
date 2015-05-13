@@ -786,8 +786,8 @@ if has("autocmd")
         autocmd FileType * setlocal colorcolumn=+1
         autocmd FileType nerdtree setlocal colorcolumn=""
 
-        " Enable Folding, uses plugin vim-javascript-syntax
-        au FileType javascript* call JavaScriptFold()
+        " Not enable Folding - it really slow on large files, uses plugin vim-javascript-syntax
+        " au FileType javascript* call JavaScriptFold()
         au FileType html let b:loaded_delimitMate = 1
         au FileType handlebars let b:loaded_delimitMate = 1
 
