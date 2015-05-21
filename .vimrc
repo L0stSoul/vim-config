@@ -9,6 +9,8 @@ set t_Co=256
 filetype off
 " Auto installing NeoNeoBundle
 let isNpmInstalled = executable("npm")
+" default path for node-modules
+let s:defaultNodeModules = '~/.vim/node_modules/.bin/'
 let iCanHazNeoBundle=1
 let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
 if !filereadable(neobundle_readme)
@@ -85,18 +87,12 @@ NeoBundle 'Raimondi/delimitMate'
 " many false positive but still usefull
 NeoBundle 'scrooloose/syntastic'
 " Install jshint and csslint for syntastic
-" Path to jshint if it not installed globally, then use local installation
-if !executable("jshint")
-    "let g:syntastic_jshint_exec = '~/.vim/node_modules/.bin/jshint'
-    let g:syntastic_javascript_jshint_exec = '~/.vim/node_modules/.bin/jshint'
-    if isNpmInstalled && !executable(expand(g:syntastic_javascript_jshint_exec))
+" Path to jshint if it not installed, then use local installation
+if isNpmInstalled
+    if !executable(expand(s:defaultNodeModules . 'jshint'))
         silent ! echo 'Installing jshint' && npm --prefix ~/.vim/ install jshint
     endif
-endif
-" Path to csslint if it not installed globally, then use local installation
-if !executable("csslint")
-    let g:syntastic_css_csslint_exec='~/.vim/node_modules/.bin/csslint'
-    if isNpmInstalled && !executable(expand(g:syntastic_css_csslint_exec))
+    if !executable(expand(s:defaultNodeModules . 'csslint'))
         silent ! echo 'Installing csslint' && npm --prefix ~/.vim/ install csslint
     endif
 endif
@@ -293,6 +289,28 @@ nmap <silent> <leader>f :NERDTreeFind<CR>
 "-------------------------
 " Syntastic
 
+function! s:FindSyntasticExecPath(toolName)
+    if executable(a:toolName)
+        return a:toolName
+    endif
+
+    let fullPath=fnamemodify('.', ':p:h')
+    while fullPath != fnamemodify('/', ':p:h')
+        if filereadable(expand(fullPath . '/node_modules/.bin/' . a:toolName))
+            return fullPath . '/node_modules/.bin/' . a:toolName
+        endif
+        let fullPath = fnamemodify(fullPath . '/../', ':p:h')
+    endwhile
+
+    return  s:defaultNodeModules . a:toolName
+
+endfunction
+
+" setting up jshint csslint and jscs if available
+let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
+let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
+let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
+
 " Enable autochecks
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1
@@ -302,6 +320,8 @@ let g:syntastic_always_populate_loc_list = 1
 
 " check json files with jshint
 let g:syntastic_filetype_map = { "json": "javascript", }
+
+let g:syntastic_javascript_checkers = ["jshint", "jscs"]
 
 " open quicfix window with all error found
 nmap <silent> <leader>ll :Errors<cr>
