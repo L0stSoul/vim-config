@@ -156,6 +156,9 @@ NeoBundle 'hail2u/vim-css3-syntax'
 " Add support for mustache/handlebars
 NeoBundle 'mustache/vim-mustache-handlebars'
 
+" Add support for jade
+NeoBundle 'digitaltoad/vim-jade'
+
 " Automatically add closing tags in html-like formats
 NeoBundle 'alvan/vim-closetag'
 
