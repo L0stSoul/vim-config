@@ -796,6 +796,7 @@ if has("autocmd")
         au BufRead,BufNewFile *.json set ft=json
         " Execute python \ -mjson.tool for autoformatting *.json
         au BufRead,BufNewFile *.bemhtml set ft=javascript
+        au BufRead,BufNewFile *.bemtree set ft=javascript
         au BufRead,BufNewFile *.xjst set ft=javascript
         au BufRead,BufNewFile *.tt2 set ft=tt2
         au BufRead,BufNewFile *.plaintex set ft=plaintex.tex
