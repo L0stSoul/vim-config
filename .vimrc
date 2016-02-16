@@ -175,7 +175,8 @@ NeoBundle 'lukaszb/vim-web-indent'
 NeoBundle 'jszakmeister/vim-togglecursor'
 
 " Nice statusline/ruler for vim
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 " Improve javascritp syntax higlighting, needed for good folding,
 " and good-looking javascritp code
