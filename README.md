@@ -134,6 +134,16 @@ Provides full integration wit git.
 
 #### Advanced javascript features &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
 Provides advanced javascript features like Smart variable rename, Find variable references, and Go to variable. If you use `.ternconf` &mdash; it'll improve autocompletion in your js files as well.
+
+
+#### Improved syntax higlighting
+* *Javascript* &mdash; [vim-javascript-syntax](https://github.com/jelera/vim-javascript-syntax)
+* *JSX* &mdash; [vim-jsx](https://github.com/mxw/vim-jsx)
+* *JSON* &mdash; [vim-json](https://github.com/elzr/vim-json)
+* *CSS3* &mdash; [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
+* *Stylus* &mdash; [vim-stylus](https://github.com/wavded/vim-stylus)
+* *Markdown* &mdash; [vim-markdown](https://github.com/tpope/vim-markdown)
+
 #### Improved editing
 * [DelimitMate](https://github.com/Raimondi/delimitMate) &mdash; provides automatic closing of quotes, parenthesis, brackets, etc., also has some other related features that will make your time in insert mode a little bit easier.
 * [tcomment](https://github.com/tomtom/tcomment_vim) &mdash; tcomment provides easy-to-use, file-type sensible comments for Vim. It can handle embedded syntax.
