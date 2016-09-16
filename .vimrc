@@ -133,9 +133,6 @@ NeoBundle 'tpope/vim-repeat'
 " and ds{what} - remove them
 NeoBundle 'tpope/vim-surround'
 
-" Syntax highlighting for Stylus
-NeoBundle 'wavded/vim-stylus'
-
 " Add aditional hotkeys
 " Looks like i'm not using it at all
 "NeoBundle 'tpope/vim-unimpaired'
@@ -143,24 +140,28 @@ NeoBundle 'wavded/vim-stylus'
 " HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim.
 NeoBundle 'othree/html5.vim'
 
+" Improve javascritp syntax higlighting, needed for good folding,
+" and good-looking javascritp code
+NeoBundle 'jelera/vim-javascript-syntax'
+
+" Improved json syntax highlighting
+NeoBundle 'elzr/vim-json'
+
 " Syntax highlighting for .jsx (js files for react js)
 NeoBundle 'mxw/vim-jsx'
-
-" Highlights the matching HTML tag when the cursor
-" is positioned on a tag.
-NeoBundle 'gregsexton/MatchTag'
 
 " Add Support css3 property
 NeoBundle 'hail2u/vim-css3-syntax'
 
-" Add support for mustache/handlebars
-NeoBundle 'mustache/vim-mustache-handlebars'
+" Syntax highlighting for Stylus
+NeoBundle 'wavded/vim-stylus'
 
-" Add support for jade
-NeoBundle 'digitaltoad/vim-jade'
-
-" Add support for markdown
+" Add support for taltoad/vim-jadeumarkdown
 NeoBundle 'tpope/vim-markdown'
+
+" Highlights the matching HTML tag when the cursor
+" is positioned on a tag.
+NeoBundle 'gregsexton/MatchTag'
 
 " Automatically add closing tags in html-like formats
 NeoBundle 'alvan/vim-closetag'
@@ -178,15 +179,8 @@ NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
-" Improve javascritp syntax higlighting, needed for good folding,
-" and good-looking javascritp code
-NeoBundle 'jelera/vim-javascript-syntax'
-
 "code-completion for jquery, lodash e.t.c
 NeoBundle 'othree/javascript-libraries-syntax.vim'
-
-" Improved json syntax highlighting
-NeoBundle 'elzr/vim-json'
 
 " Code complete
 NeoBundle 'Shougo/neocomplcache.vim'
