@@ -188,6 +188,9 @@ NeoBundle 'Shougo/neocomplcache.vim'
 " Most recent files source for unite
 NeoBundle 'Shougo/neomru.vim'
 
+" Yank history for unite
+NeoBundle 'Shougo/neoyank.vim'
+
 " Plugin for chord mappings
 NeoBundle 'kana/vim-arpeggio'
 
