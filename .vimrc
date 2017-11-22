@@ -9,7 +9,7 @@ set t_Co=256
 filetype off
 " Auto installing NeoNeoBundle
 let isNpmInstalled = executable("npm")
-" default path for node-modules
+" Default path for node-modules
 let s:defaultNodeModules = '~/.vim/node_modules/.bin/'
 let iCanHazNeoBundle=1
 let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
@@ -44,7 +44,7 @@ endif
 " Let NeoNeoBundle manage NeoNeoBundle
 NeoBundle 'Shougo/neobundle.vim'
 
-" Instlall vimrpoc. is uses by unite and neocomplcache
+" Install vimrpoc. is uses by unite and neocomplcache
 " for async searches and calls
 NeoBundle 'Shougo/vimproc', {
 \ 'build' : {
@@ -60,7 +60,7 @@ NeoBundle 'vim-scripts/tlib'
 " Allow word for bookmark marks, and nice quickfix window with bookmark list
 " NeoBundle 'AndrewRadev/simple_bookmarks.vim'
 
-" plugin for fuzzy file search, most recent files list
+" Plugin for fuzzy file search, most recent files list
 " and much more
 NeoBundle 'Shougo/unite.vim'
 
@@ -84,7 +84,7 @@ NeoBundle 'Raimondi/delimitMate'
 " Add code static check on write
 " need to be properly configured.
 " I just enable it, with default config,
-" many false positive but still usefull
+" many false positive but still useful
 NeoBundle 'scrooloose/syntastic'
 " Install jshint and csslint for syntastic
 " Path to jshint if it not installed, then use local installation
@@ -102,7 +102,7 @@ endif
 " Must have
 NeoBundle 'scrooloose/nerdtree'
 
-" Provide smart autocomplete results for javascript, and some usefull commands
+" Provide smart autocomplete results for javascript, and some useful commands
 if has("python") && isNpmInstalled
     " install tern and node dependencies for tern
     NeoBundle 'marijnh/tern_for_vim', {
@@ -115,7 +115,7 @@ endif
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
 " gc  - Toggle comments for selected region or number of strings
-" Very usefull
+" Very useful
 NeoBundle 'tomtom/tcomment_vim'
 
 " Best git wrapper for vim
@@ -140,8 +140,8 @@ NeoBundle 'tpope/vim-surround'
 " HTML5 + inline SVG omnicomplete funtion, indent and syntax for Vim.
 NeoBundle 'othree/html5.vim'
 
-" Improve javascritp syntax higlighting, needed for good folding,
-" and good-looking javascritp code
+" Improve javascript syntax higlighting, needed for good folding,
+" and good-looking javascript code
 NeoBundle 'jelera/vim-javascript-syntax'
 
 " Improved json syntax highlighting
@@ -179,7 +179,7 @@ NeoBundle 'jszakmeister/vim-togglecursor'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 
-"code-completion for jquery, lodash e.t.c
+" Code-completion for jquery, lodash e.t.c
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 
 " Code complete
@@ -208,10 +208,10 @@ syntax on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 
-" disable annoying prompt on initial bundle install
+" Disable annoying prompt on initial bundle install
 set nomore
 
-" fix issue when github refuse connections on initial install
+" Fix issue when github refuse connections on initial install
 let g:neobundle#install_max_processes=2
 
 " Install all bundles on first launch
@@ -244,7 +244,7 @@ let g:unite_source_file_mru_limit = 100
 " Enable history for yanks
 let g:unite_source_history_yank_enable = 1
 
-" Make samll limit for yank history,
+" Make small limit for yank history,
 let g:unite_source_history_yank_limit = 40
 
 " Grep options Default for unite + supress error messages
@@ -396,7 +396,7 @@ nmap <silent> <leader>tn :TernRename<CR>
 "-------------------------
 " Solarized
 
-" if You have problem with background, uncomment this line
+" If You have problem with background, uncomment this line
 " let g:solarized_termtrans=1
 
 "-------------------------
@@ -498,13 +498,13 @@ inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
 inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
 inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
 
-" disable preview in code complete
+" Disable preview in code complete
 set completeopt-=preview
 
 "-------------------------
 " Arpeggio
 
-" map jk to escape
+" Map jk to escape
 call arpeggio#map('i', '', 0, 'jk', '<ESC>')
 
 "--------------------------------------------------
@@ -516,7 +516,7 @@ colorscheme solarized
 " Setting up light color scheme
 set background=light
 
-" set highlighting for colorcolumn
+" Set highlighting for colorcolumn
 highlight ColorColumn ctermbg=lightGrey
 
 "--------------------------------------------------
@@ -534,7 +534,7 @@ highlight ColorColumn ctermbg=lightGrey
 " Auto reload changed files
 set autoread
 
-" Always change current dirrectory to current-editing-file dir
+" Always change current directory to current-editing-file dir
 "set autochdir
 
 " Indicates fast terminal connection
@@ -552,7 +552,7 @@ if &modifiable
     set fileformat=unix
 endif
 
-" Enable Tcl interface. Not shure what is exactly mean.
+" Enable Tcl interface. Not sure what is exactly mean.
 " set infercase
 
 " Interprete all files like binary and disable many features.
@@ -585,7 +585,7 @@ set listchars=tab:⇥\ ,trail:·,extends:⋯,precedes:⋯,nbsp:~
 " Useless with nowrap
 " set linebreak
 
-" Numbers of line to scroll when the cursor get off the screen
+" Numbers of lines to scroll when the cursor get off the screen
 " Useless with scrolloff
 " set scrolljump=5
 
@@ -600,7 +600,7 @@ set scrolloff=10
 set sidescrolloff=10
 
 " Vim will move to the previous/next line after reaching first/last char in
-" the line with this commnad (you can add 'h' or 'l' here as well)
+" the line with this command (you can add 'h' or 'l' here as well)
 " <,> stand for arrows in command mode and [,] arrows in visual mode
 set whichwrap=b,s,<,>,[,],
 
@@ -631,10 +631,10 @@ set number
 " Highlight line with cursor
 set cursorline
 
-" maximum text length at 80 symbols, vim automatically breaks longer lines
+" Maximum text length at 80 symbols, vim automatically breaks longer lines
 " set textwidth=80
 
-" higlight column right after max textwidth
+" Highlight column right after max textwidth
 set colorcolumn=+1
 
 
@@ -644,22 +644,22 @@ set colorcolumn=+1
 " Copy indent from previous line
 set autoindent
 
-" Enable smart indent. it add additional indents whe necessary
+" Enable smart indent. It add additional indents whe necessary
 set smartindent
 
 " Replace tabs with spaces
 set expandtab
 
-" Whe you hit tab at start of line, indent added according to shiftwidth value
+" When you hit tab at start of line, indent added according to shiftwidth value
 set smarttab
 
-" number of spaces to use for each step of indent
+" Number of spaces to use for each step of indent
 set shiftwidth=4
 
 " Number of spaces that a Tab in the file counts for
 set tabstop=4
 
-" Same but for editing operation (not shure what exactly does it means)
+" Same but for editing operation (not sure what exactly does it means)
 " but in most cases tabstop and softtabstop better be the same
 set softtabstop=4
 
@@ -680,13 +680,13 @@ set hlsearch
 " Ignore case in search patterns
 set ignorecase
 
-" Override the 'ignorecase' option if the search patter ncontains upper case characters
+" Override the 'ignorecase' option if the search pattern contains upper case characters
 set smartcase
 
 " Live search. While typing a search command, show where the pattern
 set incsearch
 
-" Disable higlighting search result on Enter key
+" Disable highlighting search result on Enter key
 nnoremap <silent> <cr> :nohlsearch<cr><cr>
 
 " Show matching brackets
@@ -699,7 +699,7 @@ set matchpairs+=<:>
 "--------------------------------------------------
 " Wildmenu
 
-" Extended autocmpletion for commands
+" Extended autocompletion for commands
 set wildmenu
 
 " Autocmpletion hotkey
@@ -733,8 +733,8 @@ set iskeyword+=-
 " Disable backups file
 set nobackup
 
-" Disable vim common sequense for saving.
-" By defalut vim write buffer to a new file, then delete original file
+" Disable vim common sequence for saving.
+" By default vim write buffer to a new file, then delete original file
 " then rename the new file.
 set nowritebackup
 
@@ -770,7 +770,7 @@ vmap <leader>s :s//<left>
 nmap <leader>w <C-w>w
 
 "--------------------------------------------------
-" Aautocmd
+" Autocmd
 
 " It executes specific command when specific events occured
 " like reading or writing file, or open or close buffer
@@ -778,9 +778,9 @@ if has("autocmd")
     " Define group of commands,
     " Commands defined in .vimrc don't bind twice if .vimrc will reload
     augroup vimrc
-    " Delete any previosly defined autocommands
+    " Delete any previously defined autocommands
     au!
-        " Auto reload vim after your cahange it
+        " Auto reload vim after your change it
         au BufWritePost *.vim source $MYVIMRC | AirlineRefresh
         au BufWritePost .vimrc source $MYVIMRC | AirlineRefresh
 
