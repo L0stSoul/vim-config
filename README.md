@@ -132,11 +132,14 @@ Provides smart autocompletion.
 #### Integration with git &mdash; [Fugitive](https://github.com/tpope/vim-fugitive)
 Provides full integration wit git.
 
-#### Advanced javascript features &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
-Provides advanced javascript features like Smart variable rename, Find variable references, and Go to variable. If you use `.ternconf` &mdash; it'll improve autocompletion in your js files as well.
+#### Advanced typescript integration &mdash; [tsuquyomi](https://github.com/Quramy/tsuquyomi)
+Provides advanced javascript features - like contextaware typescript autocompletion, immediately show type errors and semantic errors, adwanced navigation ability etc
 
+#### Advanced javascript integration &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
+Provides advanced javascript features - like context aware javascript code completion, variable rename, Find variable references, and Go to variable.
 
 #### Improved syntax higlighting
+* *Typescript* &mdash; [leafgarland/typescript-vim](https://github.com/leafgarland/typescript-vim)
 * *Javascript* &mdash; [vim-javascript-syntax](https://github.com/jelera/vim-javascript-syntax)
 * *JSX* &mdash; [vim-jsx](https://github.com/mxw/vim-jsx)
 * *JSON* &mdash; [vim-json](https://github.com/elzr/vim-json)

@@ -113,6 +113,9 @@ if (has("python") || has("python3")) && isNpmInstalled
 \   }
 endif
 
+" Advanced features support for typescript editing
+NeoBundle 'Quramy/tsuquyomi'
+
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
 " gc  - Toggle comments for selected region or number of strings
@@ -150,6 +153,9 @@ NeoBundle 'elzr/vim-json'
 
 " Syntax highlighting for .jsx (js files for react js)
 NeoBundle 'mxw/vim-jsx'
+
+" Syntax highlighting for typescript
+NeoBundle 'leafgarland/typescript-vim'
 
 " Add Support css3 property
 NeoBundle 'hail2u/vim-css3-syntax'
@@ -317,6 +323,7 @@ endfunction
 " setting up jshint csslint and jscs if available
 let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
 let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
 
 " Enable autochecks
@@ -396,6 +403,18 @@ nmap <silent> <leader>tr :TernRefs<CR>
 
 " Smart variable rename
 nmap <silent> <leader>tn :TernRename<CR>
+
+"-------------------------
+" Tsuquyomi
+
+let g:tsuquyomi_disable_quickfix = 1
+
+" Go to definition
+nmap <silent> <leader>td :TsuDefinition<cr>
+" Go to type definition
+vmap <silent> <leader>tdt :TsuTypeDefinition<cr>
+" find all references
+nmap <silent> <leader>tr :TsuReferences<cr>
 
 "-------------------------
 " Solarized
@@ -495,6 +514,7 @@ inoremap <expr><C-e> neocomplcache#undo_completion()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType typescript setlocal omnifunc=typescriptcomlete#CompleteTS
 
 " For cursor moving in insert mode
 inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
