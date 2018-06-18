@@ -64,10 +64,9 @@ NeoBundle 'vim-scripts/tlib'
 " and much more
 NeoBundle 'Shougo/unite.vim'
 
-" Snippets engine with good integration with neocomplcache
-NeoBundle 'Shougo/neosnippet'
-" Default snippets for neosnippet, i prefer vim-snippets
-"NeoBundle 'Shougo/neosnippet-snippets'
+" Snippet engine
+NeoBundle 'SirVer/ultisnips'
+
 " Default snippets
 NeoBundle 'honza/vim-snippets'
 
@@ -101,20 +100,6 @@ endif
 " Allow modification of dir, and may other things
 " Must have
 NeoBundle 'scrooloose/nerdtree'
-
-" Provide smart autocomplete results for javascript, and some useful commands
-if (has("python") || has("python3")) && isNpmInstalled
-    " install tern and node dependencies for tern
-    NeoBundle 'marijnh/tern_for_vim', {
-\       'build' : {
-\          'windows' : 'npm install',
-\          'unix' : 'npm install'
-\       }
-\   }
-endif
-
-" Advanced features support for typescript editing
-NeoBundle 'Quramy/tsuquyomi'
 
 " Add smart commands for comments like:
 " gcc - Toggle comment for the current line
@@ -160,7 +145,7 @@ NeoBundle 'leafgarland/typescript-vim'
 " Add Support css3 property
 NeoBundle 'hail2u/vim-css3-syntax'
 
-+" Syntax highlighting for mustache & handlebars
+" Syntax highlighting for mustache & handlebars
 NeoBundle 'mustache/vim-mustache-handlebars'
 
 " Syntax highlighting for Stylus
@@ -192,11 +177,21 @@ NeoBundle 'vim-airline/vim-airline-themes'
 " Code-completion for jquery, lodash e.t.c
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 
-" Code complete
-NeoBundle 'Shougo/neocomplcache.vim'
-
 " Most recent files source for unite
 NeoBundle 'Shougo/neomru.vim'
+
+" Autocompletion engine
+NeoBundle 'Valloric/YouCompleteMe', {
+     \ 'build' : {
+     \     'unix' : './install.sh --js-completer && git submodule update --init --recursive',
+     \     'windows' : './install.sh --js-completer && git submodule update --init --recursive',
+     \     'cygwin' : './install.sh  --js-completer && git submodule update --init --recursive'
+     \    }
+     \ }
+" uses globally installed typescript for compeltion
+if isNpmInstalled && !executable('tsc')
+    silent ! echo 'Installing typescript' && npm install -g typescript
+endif
 
 " Yank history for unite
 NeoBundle 'Shougo/neoyank.vim'
@@ -224,6 +219,9 @@ set nomore
 " Fix issue when github refuse connections on initial install
 let g:neobundle#install_max_processes=2
 
+" Fix issue for long builds during initial install
+let g:neobundle#install_process_timeout=180
+
 " Install all bundles on first launch
 if !iCanHazNeoBundle
     NeoBundleInstall
@@ -234,6 +232,25 @@ NeoBundleCheck
 
 "--------------------------------------------------
 " Bundles settings
+
+"-------------------------
+" ultsnips
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+let g:UltiSnipsExpandTrigger="<nop>"
+let g:ulti_expand_or_jump_res = 0
+
+" Smart snippet expanding on CR
+function! <SID>ExpandSnippetOrReturn()
+  let snippet = UltiSnips#ExpandSnippetOrJump()
+  if g:ulti_expand_or_jump_res > 0
+    return snippet
+  else
+    return "\<CR>"
+  endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
 
 "-------------------------
 " Unite
@@ -323,7 +340,6 @@ endfunction
 " setting up jshint csslint and jscs if available
 let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
 let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
-let g:syntastic_typescript_checkers = ['tsuquyomi']
 let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
 
 " Enable autochecks
@@ -394,50 +410,10 @@ let g:mustache_abbreviations = 1
 let g:closetag_filenames = "*.handlebars,*.html,*.xhtml,*.phtml"
 
 "-------------------------
-" Tern_for_vim
-
-let tern_show_signature_in_pum = 1
-
-" Find all refs for variable under cursor
-nmap <silent> <leader>tr :TernRefs<CR>
-
-" Smart variable rename
-nmap <silent> <leader>tn :TernRename<CR>
-
-"-------------------------
-" Tsuquyomi
-
-let g:tsuquyomi_disable_quickfix = 1
-
-" Go to definition
-nmap <silent> <leader>td :TsuDefinition<cr>
-" Go to type definition
-vmap <silent> <leader>tdt :TsuTypeDefinition<cr>
-" find all references
-nmap <silent> <leader>tr :TsuReferences<cr>
-
-"-------------------------
 " Solarized
 
 " If You have problem with background, uncomment this line
 " let g:solarized_termtrans=1
-
-"-------------------------
-" neosnippets
-"
-
-" Enable snipMate compatibility
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-" Disables standart snippets. We use vim-snippets bundle instead
-let g:neosnippet#disable_runtime_snippets = { '_' : 1 }
-
-" Expand snippet and jimp to next snippet field on Enter key.
-imap <expr><CR> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
 
 "-------------------------
 " vim-airline
@@ -467,63 +443,31 @@ let g:airline_section_y = ''
 let g:airline_section_x = ''
 
 "-------------------------
-" neocomplcache
+" YouCompleteMe
 
-" Enable NeocomplCache at startup
-let g:neocomplcache_enable_at_startup = 1
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+' ],
+    \   'less': [ 're!^\s{4}', 're!:\s+' ],
+    \ }
 
-" Max items in code-complete
-let g:neocomplcache_max_list = 10
+" Choose completion with tab
+let g:ycm_key_list_select_completion=["<tab>"]
+let g:ycm_key_list_previous_completion=["<S-tab>"]
 
-" Max width of code-complete window
-let g:neocomplcache_max_keyword_width = 80
+" Go to type definition/declaration
+nmap <silent> <leader>td :YcmCompleter GoTo<CR>
 
-" Code complete is ignoring case until no Uppercase letter is in input
-let g:neocomplcache_enable_smart_case = 1
+" Show all references to variable under coursor
+nmap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 
-" Auto select first item in code-complete
-let g:neocomplcache_enable_auto_select = 1
+" Show type of variable under cursor
+nmap <silent> <leader>gt :YcmCompleter GetType<CR>
 
-" Disable auto popup
-let g:neocomplcache_disable_auto_complete = 1
+" Show docs for entity under cursor
+nmap <silent> <leader>gd :YcmCompleter GetDoc<CR>
 
-" Smart tab Behavior
-function! CleverTab()
-    " If autocomplete window visible then select next item in there
-    if pumvisible()
-        return "\<C-n>"
-    endif
-    " If it's begining of the string then return just tab pressed
-    let substr = strpart(getline('.'), 0, col('.') - 1)
-    let substr = matchstr(substr, '[^ \t]*$')
-    if strlen(substr) == 0
-        " nothing to match on empty string
-        return "\<Tab>"
-    else
-        " If not begining of the string, and autocomplete popup is not visible
-        " Open this popup
-        return "\<C-x>\<C-u>"
-    endif
-endfunction
-inoremap <expr><TAB> CleverTab()
-
-" Undo autocomplete
-inoremap <expr><C-e> neocomplcache#undo_completion()
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType typescript setlocal omnifunc=typescriptcomlete#CompleteTS
-
-" For cursor moving in insert mode
-inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-
-" Disable preview in code complete
-set completeopt-=preview
+" Refactor smart rename, space at the end are important :)
+nmap <leader>rr :YcmCompleter RefactorRename 
 
 "-------------------------
 " Arpeggio
@@ -591,6 +535,12 @@ set noshowmode
 
 " Show file name in window title
 set title
+
+" open preview window at bottom
+set splitbelow
+
+" Hide preview window for completion
+set completeopt-=preview
 
 " Mute error bell
 set novisualbell
@@ -830,6 +780,12 @@ if has("autocmd")
         " I don't use it
         autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+        " Enable omni completion.
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType typescript setlocal omnifunc=typescriptcomlete#CompleteTS
 
         " Disable vertical line at max string length in NERDTree
         autocmd FileType * setlocal colorcolumn=+1

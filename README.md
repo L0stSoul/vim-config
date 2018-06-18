@@ -29,11 +29,15 @@ Show current file in NERDtree in a split                  | `leader f`
 Show error window                                         | `leader ll`
 Go to the next line with error/warning                    | `]`
 Go to the previous line with error/warning                | `[`
-**▶ Advanced Javascript features (if Tern is available)** |
-Find all refs for the variable under cursor               | `leader tr`
-Smart rename a variable and all references to it          | `leader tn`
+**▶ Advanced Typescript/Javascript features**             |
+Go to type definition/declaration                         | `leader td`
+Show all references to variable under coursor             | `leader gr`
+Show type of variable under cursor                        | `leader gt`
+Show docs for entity under cursor                         | `leader gd`
+Smart rename an entity under coursor and all refs to it   | `leader rr`
 **▶ Code completion**                                     |
-Start autocompletion                                      | `tab`
+Next completion item                                      | `tab`
+Previous completion item                                  | `shift+tab`
 Undo autocompletion                                       | `ctrl+e`
 Expand snippet                                            | `Enter`
 **▶ Integration with Git**                                |
@@ -100,7 +104,7 @@ vundle.
 A popular light/dark color scheme.
 
 ![Screen](https://raw.githubusercontent.com/altercation/solarized/master/img/solarized-vim.png)
-#### Snippets &mdash; [Neosnippet](https://github.com/Shougo/neosnippet.vim) & [vim-snippets](https://github.com/honza/vim-snippets)
+#### Snippets &mdash; [Ultisnips](https://github.com/SirVer/ultisnips) & [vim-snippets](https://github.com/honza/vim-snippets)
 Neosnippet is a snippet engine itself, and Vim-snippets &mdash; it’s default snippets collection.
 
 This config features snippets, which can be autocompleted by `tab`
@@ -126,16 +130,16 @@ Imroved file-system navigation. Looks pretty much like the standard one but with
 #### Improved status line &mdash; [Airline](https://github.com/bling/vim-airline)
 Nice and good loking status bar for vim, nicely integrated with syntastic and fugitive.
 
-#### Good keyword completion system &mdash; [Neocomplcache](https://github.com/Shougo/neocomplcache.vim)
-Provides smart autocompletion.
+#### Good keyword completion system &mdash; [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+Smart and mighty autocompletion.
 
 #### Integration with git &mdash; [Fugitive](https://github.com/tpope/vim-fugitive)
 Provides full integration wit git.
 
-#### Advanced typescript integration &mdash; [tsuquyomi](https://github.com/Quramy/tsuquyomi)
+#### Advanced typescript integration &mdash; [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) && [Typesript compiler](https://github.com/Microsoft/TypeScript)
 Provides advanced javascript features - like contextaware typescript autocompletion, immediately show type errors and semantic errors, adwanced navigation ability etc
 
-#### Advanced javascript integration &mdash; [Tern for Vim](https://github.com/marijnh/tern_for_vim)
+#### Advanced javascript integration &mdash; [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) && [Tern for Vim](https://github.com/marijnh/tern_for_vim)
 Provides advanced javascript features - like context aware javascript code completion, variable rename, Find variable references, and Go to variable.
 
 #### Improved syntax higlighting
