@@ -103,10 +103,11 @@ endif
 NeoBundle 'scrooloose/nerdtree'
 
 " Provide smart autocomplete results for javascript, and some useful commands
-if has("python") && isNpmInstalled
+if (has("python") || has("python3")) && isNpmInstalled
     " install tern and node dependencies for tern
     NeoBundle 'marijnh/tern_for_vim', {
 \       'build' : {
+\          'windows' : 'npm install',
 \          'unix' : 'npm install'
 \       }
 \   }
