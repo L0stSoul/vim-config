@@ -143,6 +143,7 @@ Provides advanced javascript features like Smart variable rename, Find variable 
 * *CSS3* &mdash; [vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
 * *Stylus* &mdash; [vim-stylus](https://github.com/wavded/vim-stylus)
 * *Markdown* &mdash; [vim-markdown](https://github.com/tpope/vim-markdown)
+* *Mustache/Handlebars* &mdash; [vim-mustache-handlebars](https://github.com/mustache/vim-mustache-handlebars)
 
 #### Improved editing
 * [DelimitMate](https://github.com/Raimondi/delimitMate) &mdash; provides automatic closing of quotes, parenthesis, brackets, etc., also has some other related features that will make your time in insert mode a little bit easier.

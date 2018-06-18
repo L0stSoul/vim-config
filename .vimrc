@@ -60,6 +60,9 @@ NeoBundle 'vim-scripts/tlib'
 " Allow word for bookmark marks, and nice quickfix window with bookmark list
 " NeoBundle 'AndrewRadev/simple_bookmarks.vim'
 
++" Syntax highlighting for mustache & handlebars
+NeoBundle 'mustache/vim-mustache-handlebars'
+
 " Plugin for fuzzy file search, most recent files list
 " and much more
 NeoBundle 'Shougo/unite.vim'
