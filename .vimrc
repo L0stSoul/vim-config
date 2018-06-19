@@ -355,7 +355,7 @@ let g:syntastic_filetype_map = { "json": "javascript", }
 let g:syntastic_javascript_checkers = ["jshint", "jscs"]
 
 " open quicfix window with all error found
-nmap <silent> <leader>ll :Errors<cr>
+nmap <silent> <leader>ll :lopen<cr>
 " previous syntastic error
 nmap <silent> [ :lprev<cr>
 " next syntastic error
@@ -453,6 +453,9 @@ let g:ycm_semantic_triggers = {
 " Choose completion with tab
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
+
+" Populate location list with errors to behavejust like syntastic
+let g:ycm_always_populate_location_list = 1
 
 " Go to type definition/declaration
 nmap <silent> <leader>td :YcmCompleter GoTo<CR>
