@@ -4,9 +4,11 @@
 
 ### Features
 * Only one file, you don't need to run any installation script.
+* Integration with Typescript/Javascript
 * Integration with Git.
 * Integration with grep/ack.
 * Automatic syntax and codestyle checks.
+* Show code coverage if available.
 * Smart autocomplete.
 * Tweeks for easier navigation.
 * Snippets.
@@ -135,6 +137,9 @@ Smart and mighty autocompletion.
 
 #### Integration with git &mdash; [Fugitive](https://github.com/tpope/vim-fugitive)
 Provides full integration wit git.
+
+#### Show Code coverage &mdash; [Forked version of Coverage.vim](https://github.com/Musinux/coverage.vim)
+If you have code coverage report for you project located in '.coverage/coverage-final.json' or 'coverage/coverage-final.json' the covered lines would be highlighted.
 
 #### Advanced typescript integration &mdash; [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) && [Typesript compiler](https://github.com/Microsoft/TypeScript)
 Provides advanced javascript features - like contextaware typescript autocompletion, immediately show type errors and semantic errors, adwanced navigation ability etc

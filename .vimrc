@@ -107,6 +107,9 @@ NeoBundle 'scrooloose/nerdtree'
 " Very useful
 NeoBundle 'tomtom/tcomment_vim'
 
+" Show code coverage in vim
+NeoBundle 'L0stsoul/coverage.vim'
+
 " Best git wrapper for vim
 " But with my workflow, i really rarely use it
 " just Gdiff and Gblame sometimes
@@ -303,7 +306,12 @@ nnoremap <silent><leader>; :Unite file_rec/async:! -buffer-name=files -start-ins
 " Unite-grep
 nnoremap <silent><leader>/ :Unite grep:. -no-start-insert -no-quit -keep-focus -wrap<CR>
 
-
+"-------------------------
+" coverage
+"
+let g:coverage_json_report_pathes = ['.coverage/coverage-final.json', 'coverage/coverage-final.json']
+let g:coverage_sign_covered = '⦿'
+let g:coverage_show_covered = 1
 
 "-------------------------
 " NERDTree
