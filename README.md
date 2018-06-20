@@ -49,8 +49,10 @@ Git diff                                                  | `leader gd`
 Git commit                                                | `leader gc`
 Git commit all                                            | `leader gca`
 Git commit -a --amend                                     | `leader gcf`
+**▶ Spellcheck**                                          |
+Show suggestions                                          | `z=`
+Add word under the cursor as a good word                  | `zg`
 **▶ Other**                                               |
-Show spellcheck suggestions                               | `z=`
 Toggle comment on the current line                        | `gcc`
 Toggle comments                                           | `gc in visual mode, or gc + motion`
 Change surrounding symbols (like [ or ")                  | `cs (what)(to what)`
