@@ -9,10 +9,11 @@
 * Integration with grep/ack.
 * Automatic syntax and codestyle checks.
 * Show code coverage if available.
-* Smart autocomplete.
+* Smart autocomplet.
 * Tweeks for easier navigation.
 * Snippets.
 * Fully documented.
+* Spellchecker is enabled by default.
 * Optimized for web development.
 * Quick Tab navigation, recent files list, fuzzy search, and other (see the full list of features).
 
@@ -49,6 +50,7 @@ Git commit                                                | `leader gc`
 Git commit all                                            | `leader gca`
 Git commit -a --amend                                     | `leader gcf`
 **▶ Other**                                               |
+Show spellcheck suggestions                               | `z=`
 Toggle comment on the current line                        | `gcc`
 Toggle comments                                           | `gc in visual mode, or gc + motion`
 Change surrounding symbols (like [ or ")                  | `cs (what)(to what)`

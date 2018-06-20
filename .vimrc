@@ -723,6 +723,9 @@ set noswapfile
 " Do not add eol at the end of file.
 set noeol
 
+" Spellcheck
+set spell spelllang=en_us
+
 "--------------------------------------------------
 " Diff Options
 
