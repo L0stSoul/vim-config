@@ -295,16 +295,10 @@ endif
 nnoremap <silent><leader>m :<C-u>Unite file_mru <CR>
 
 " Hotkey for open history window
-nnoremap <silent><leader>h :Unite -quick-match -max-multi-lines=2 -start-insert -auto-quit history/yank<CR>
+nnoremap <silent><leader>h :Unite -quick-match -max-multi-lines=2 -start-insert history/yank<CR>
 
 " Quick tab navigation
-nnoremap <silent><leader>' :Unite -quick-match -auto-quit tab<CR>
-
-" Fuzzy find files
-nnoremap <silent><leader>; :Unite file_rec/async:! -buffer-name=files -start-insert<CR>
-
-" Unite-grep
-nnoremap <silent><leader>/ :Unite grep:. -no-start-insert -no-quit -keep-focus -wrap<CR>
+nnoremap <silent><leader>' :Unite tab<CR>
 
 "-------------------------
 " coverage

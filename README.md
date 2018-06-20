@@ -24,8 +24,6 @@ Action | Hotkey
 --------------------------------------------------------- | -----------------
 **▶ File operations**                                     |
 Recent Files List                                         | `leader m`
-FuzzyFinder fo files                                      | `leader ;`
-Ack/Grep                                                  | `leader /`
 Show current file in NERDtree in a split                  | `leader f`
 **▶ JShint/CSSlint navigation**                           |
 Show error window                                         | `leader ll`
@@ -116,8 +114,6 @@ This config features snippets, which can be autocompleted by `tab`
 Provides features like:
 * Recent files list (with help of [neomru](https://github.com/Shougo/neomru.vim)).
 * Quick tab navigation.
-* Async fuzzySearch (with help of [vimproc](https://github.com/Shougo/vimproc.vim)).
-* Grep/Ack integration.
 * Yank/History.
 
 #### On-the-go Syntax checker &mdash; [Syntastic](https://github.com/scrooloose/syntastic)
