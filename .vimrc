@@ -91,6 +91,9 @@ if isNpmInstalled
     if !executable(expand(s:defaultNodeModules . 'jshint'))
         silent ! echo 'Installing jshint' && npm --prefix ~/.vim/ install jshint
     endif
+    if !executable(expand(s:defaultNodeModules . 'tslint'))
+        silent ! echo 'Installing tslint' && npm --prefix ~/.vim/ install tslint
+    endif
     if !executable(expand(s:defaultNodeModules . 'csslint'))
         silent ! echo 'Installing csslint' && npm --prefix ~/.vim/ install csslint
     endif
@@ -342,6 +345,7 @@ endfunction
 " setting up jshint csslint and jscs if available
 let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
 let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
+let g:syntastic_typescript_tslint_exec = s:FindSyntasticExecPath('tslint')
 let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
 
 " Enable autochecks
@@ -355,6 +359,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_filetype_map = { "json": "javascript", }
 
 let g:syntastic_javascript_checkers = ["jshint", "jscs"]
+let g:syntastic_typescript_checkers = ["tslint"]
 
 " open quicfix window with all error found
 nmap <silent> <leader>ll :lopen<cr>
@@ -456,7 +461,7 @@ let g:ycm_semantic_triggers = {
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
 
-" Populate location list with errors to behavejust like syntastic
+" Populate location list with errors to behave just like syntastic
 let g:ycm_always_populate_location_list = 1
 
 " Go to type definition/declaration
