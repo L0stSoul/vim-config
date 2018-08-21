@@ -85,7 +85,7 @@ NeoBundle 'Raimondi/delimitMate'
 " I just enable it, with default config,
 " many false positive but still useful
 NeoBundle 'scrooloose/syntastic'
-" Install jshint and csslint for syntastic
+" Install jshint and stylelint for syntastic
 " Path to jshint if it not installed, then use local installation
 if isNpmInstalled
     if !executable(expand(s:defaultNodeModules . 'jshint'))
@@ -94,8 +94,8 @@ if isNpmInstalled
     if !executable(expand(s:defaultNodeModules . 'tslint'))
         silent ! echo 'Installing tslint' && npm --prefix ~/.vim/ install tslint
     endif
-    if !executable(expand(s:defaultNodeModules . 'csslint'))
-        silent ! echo 'Installing csslint' && npm --prefix ~/.vim/ install csslint
+    if !executable(expand(s:defaultNodeModules . 'stylelint'))
+        silent ! echo 'Installing stylelint' && npm --prefix ~/.vim/ install stylelint
     endif
 endif
 
@@ -342,11 +342,11 @@ function! s:FindSyntasticExecPath(toolName)
 
 endfunction
 
-" setting up jshint csslint and jscs if available
+" setting up jshint, tslint, stylelint and jscs if available
 let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
 let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
 let g:syntastic_typescript_tslint_exec = s:FindSyntasticExecPath('tslint')
-let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
+let g:syntastic_css_stylelint_exec = s:FindSyntasticExecPath('stylelint')
 
 " Enable autochecks
 let g:syntastic_check_on_open=1
@@ -360,6 +360,7 @@ let g:syntastic_filetype_map = { "json": "javascript", }
 
 let g:syntastic_javascript_checkers = ["jshint", "jscs"]
 let g:syntastic_typescript_checkers = ["tslint"]
+let g:syntastic_css_checkers = ["stylelint"]
 
 " open quicfix window with all error found
 nmap <silent> <leader>ll :lopen<cr>
