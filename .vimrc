@@ -143,7 +143,7 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'elzr/vim-json'
 
 " Syntax highlighting for .jsx (js files for react js)
-NeoBundle 'mxw/vim-jsx'
+NeoBundle 'maxmellon/vim-jsx-pretty'
 
 " Syntax highlighting for typescript
 NeoBundle 'leafgarland/typescript-vim'
