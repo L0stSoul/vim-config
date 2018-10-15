@@ -455,15 +455,20 @@ let g:airline_section_x = ''
 
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \   'less': [ 're!^\s{4}', 're!:\s+' ],
+    \   'typescript': [ ' ', "'" ],
+    \   'less': [ 're!^\s{4}', 're!:\s+' ]
     \ }
 
 " Choose completion with tab
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
+let g:ycm_use_ultisnips_completer = 0
 
 " Populate location list with errors to behave just like syntastic
 let g:ycm_always_populate_location_list = 1
+
+" Disable Identifier based completion completly
+let g:ycm_min_num_of_chars_for_completion = 50
 
 " Go to type definition/declaration
 nmap <silent> <leader>td :YcmCompleter GoTo<CR>
