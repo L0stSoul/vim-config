@@ -402,8 +402,8 @@ let delimitMate_expand_cr = 1
 " if x - cursor if you press space in {x} result will be { x } instead of { x}
 let delimitMate_expand_space = 1
 
-" Without this we can't disable delimitMate for specific file types
-let loaded_delimitMate = 1
+" Enable it for quotes
+let delimitMate_smart_quotes = 1
 
 "-------------------------
 " vim-mustache-handlebars
@@ -415,7 +415,7 @@ let g:mustache_abbreviations = 1
 " vim-closetag
 
 " Enable for files with this extensions
-let g:closetag_filenames = "*.handlebars,*.html,*.xhtml,*.phtml"
+let g:closetag_filenames = "*.handlebars,*.html,*.xhtml,*.phtml,*.tsx,*jsx"
 
 "-------------------------
 " Solarized
@@ -455,20 +455,23 @@ let g:airline_section_x = ''
 
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \   'typescript': [ ' ', "'" ],
+    \   'typescript': [ ' ', "'"],
     \   'less': [ 're!^\s{4}', 're!:\s+' ]
     \ }
 
 " Choose completion with tab
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
-let g:ycm_use_ultisnips_completer = 0
 
 " Populate location list with errors to behave just like syntastic
 let g:ycm_always_populate_location_list = 1
 
-" Disable Identifier based completion completly
-let g:ycm_min_num_of_chars_for_completion = 50
+let g:ycm_filepath_blacklist = {
+    \ 'jsx': 1,
+    \ 'typescript': 1,
+    \ 'html': 1,
+    \ 'xml': 1
+    \}
 
 " Go to type definition/declaration
 nmap <silent> <leader>td :YcmCompleter GoTo<CR>
@@ -644,14 +647,14 @@ set expandtab
 set smarttab
 
 " Number of spaces to use for each step of indent
-set shiftwidth=4
+set shiftwidth=2
 
 " Number of spaces that a Tab in the file counts for
-set tabstop=4
+set tabstop=2
 
 " Same but for editing operation (not sure what exactly does it means)
 " but in most cases tabstop and softtabstop better be the same
-set softtabstop=4
+set softtabstop=2
 
 " Round indent to multiple of 'shiftwidth'.
 " Indentation always be multiple of shiftwidth
@@ -681,10 +684,6 @@ nnoremap <silent> <cr> :nohlsearch<cr><cr>
 
 " Show matching brackets
 set showmatch
-
-" Make < and > match as well
-set matchpairs+=<:>
-
 
 "--------------------------------------------------
 " Wildmenu
@@ -812,8 +811,6 @@ if has("autocmd")
 
         " Not enable Folding - it really slow on large files, uses plugin vim-javascript-syntax
         " au FileType javascript* call JavaScriptFold()
-        au FileType html let b:loaded_delimitMate = 1
-        au FileType handlebars let b:loaded_delimitMate = 1
 
     " Group end
     augroup END
