@@ -84,7 +84,9 @@ NeoBundle 'Raimondi/delimitMate'
 " need to be properly configured.
 " I just enable it, with default config,
 " many false positive but still useful
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
+NeoBundle 'w0rp/ale'
+
 " Install jshint and stylelint for syntastic
 " Path to jshint if it not installed, then use local installation
 if isNpmInstalled
@@ -323,51 +325,20 @@ let NERDTreeMinimalUI=1
 nmap <silent> <leader>f :NERDTreeFind<CR>
 
 "-------------------------
-" Syntastic
+" Ale
+"
 
-function! s:FindSyntasticExecPath(toolName)
-    if executable(a:toolName)
-        return a:toolName
-    endif
+" Always open sign column, it's annoying if its jumping
+let g:ale_sign_column_always = 1
 
-    let fullPath=fnamemodify('.', ':p:h')
-    while fullPath != fnamemodify('/', ':p:h')
-        if filereadable(expand(fullPath . '/node_modules/.bin/' . a:toolName))
-            return fullPath . '/node_modules/.bin/' . a:toolName
-        endif
-        let fullPath = fnamemodify(fullPath . '/../', ':p:h')
-    endwhile
+let g:ale_sign_error = '😱'
+let g:ale_sign_warning = '😨'
 
-    return  s:defaultNodeModules . a:toolName
+" Integrate Ale in airline
+let g:airline#extensions#ale#enabled = 1
 
-endfunction
-
-" setting up jshint, tslint, stylelint and jscs if available
-let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
-let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
-let g:syntastic_typescript_tslint_exec = s:FindSyntasticExecPath('tslint')
-let g:syntastic_css_stylelint_exec = s:FindSyntasticExecPath('stylelint')
-
-" Enable autochecks
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-
-" For correct works of next/previous error navigation
-let g:syntastic_always_populate_loc_list = 1
-
-" check json files with jshint
-let g:syntastic_filetype_map = { "json": "javascript", }
-
-let g:syntastic_javascript_checkers = ["jshint", "jscs"]
-let g:syntastic_typescript_checkers = ["tslint"]
-let g:syntastic_css_checkers = ["stylelint"]
-
-" open quicfix window with all error found
-nmap <silent> <leader>ll :lopen<cr>
-" previous syntastic error
-nmap <silent> [ :lprev<cr>
-" next syntastic error
-nmap <silent> ] :lnext<cr>
+nmap <silent> [ <Plug>(ale_previous_wrap)
+nmap <silent> ] <Plug>(ale_next_wrap)
 
 "-------------------------
 " Fugitive
@@ -472,6 +443,9 @@ let g:ycm_filepath_blacklist = {
     \ 'html': 1,
     \ 'xml': 1
     \}
+
+" Since we use ale already
+let g:ycm_show_diagnostics_ui = 0
 
 " Go to type definition/declaration
 nmap <silent> <leader>td :YcmCompleter GoTo<CR>
