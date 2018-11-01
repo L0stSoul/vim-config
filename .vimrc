@@ -426,16 +426,12 @@ let g:airline_section_x = ''
 
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \   'typescript': [ ' ', "'"],
     \   'less': [ 're!^\s{4}', 're!:\s+' ]
     \ }
 
 " Choose completion with tab
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
-
-" Populate location list with errors to behave just like syntastic
-let g:ycm_always_populate_location_list = 1
 
 let g:ycm_filepath_blacklist = {
     \ 'jsx': 1,
