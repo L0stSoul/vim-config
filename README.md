@@ -120,17 +120,15 @@ Provides features like:
 * Quick tab navigation.
 * Yank/History.
 
-#### On-the-go Syntax checker &mdash; [Syntastic](https://github.com/scrooloose/syntastic)
-This plugin integrates many spellchekers and syntax checkers and shows
-you errors when saving or opening a file.
-
-By default this config use npm-packets [jshint](http://www.jshint.com/) and [css-lint](http://csslint.net/) to check js and css files on the fly.
+#### On-the-go Syntax checker &mdash; [Ale](https://github.com/w0rp/ale)
+This plugin integrates many spellcheckers and syntax checkers and shows
+you errors on the fly. Only use checkers, that installed for your project, or globally.
 
 #### Advanced file-system navigation &mdash; [NERDTree](https://github.com/scrooloose/nerdtree)
 Imroved file-system navigation. Looks pretty much like the standard one but with some cool features like tree navigation, bookmarks, and some more.
 
 #### Improved status line &mdash; [Airline](https://github.com/bling/vim-airline)
-Nice and good loking status bar for vim, nicely integrated with syntastic and fugitive.
+Nice and good loking status bar for vim, nicely integrated with Ale and fugitive.
 
 #### Good keyword completion system &mdash; [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 Smart and mighty autocompletion.
