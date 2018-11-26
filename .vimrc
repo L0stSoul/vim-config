@@ -84,7 +84,9 @@ NeoBundle 'Raimondi/delimitMate'
 " need to be properly configured.
 " I just enable it, with default config,
 " many false positive but still useful
-NeoBundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
+NeoBundle 'w0rp/ale'
+
 " Install jshint and stylelint for syntastic
 " Path to jshint if it not installed, then use local installation
 if isNpmInstalled
@@ -323,51 +325,20 @@ let NERDTreeMinimalUI=1
 nmap <silent> <leader>f :NERDTreeFind<CR>
 
 "-------------------------
-" Syntastic
+" Ale
+"
 
-function! s:FindSyntasticExecPath(toolName)
-    if executable(a:toolName)
-        return a:toolName
-    endif
+" Always open sign column, it's annoying if its jumping
+let g:ale_sign_column_always = 1
 
-    let fullPath=fnamemodify('.', ':p:h')
-    while fullPath != fnamemodify('/', ':p:h')
-        if filereadable(expand(fullPath . '/node_modules/.bin/' . a:toolName))
-            return fullPath . '/node_modules/.bin/' . a:toolName
-        endif
-        let fullPath = fnamemodify(fullPath . '/../', ':p:h')
-    endwhile
+let g:ale_sign_error = '😱'
+let g:ale_sign_warning = '😨'
 
-    return  s:defaultNodeModules . a:toolName
+" Integrate Ale in airline
+let g:airline#extensions#ale#enabled = 1
 
-endfunction
-
-" setting up jshint, tslint, stylelint and jscs if available
-let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
-let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
-let g:syntastic_typescript_tslint_exec = s:FindSyntasticExecPath('tslint')
-let g:syntastic_css_stylelint_exec = s:FindSyntasticExecPath('stylelint')
-
-" Enable autochecks
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-
-" For correct works of next/previous error navigation
-let g:syntastic_always_populate_loc_list = 1
-
-" check json files with jshint
-let g:syntastic_filetype_map = { "json": "javascript", }
-
-let g:syntastic_javascript_checkers = ["jshint", "jscs"]
-let g:syntastic_typescript_checkers = ["tslint"]
-let g:syntastic_css_checkers = ["stylelint"]
-
-" open quicfix window with all error found
-nmap <silent> <leader>ll :lopen<cr>
-" previous syntastic error
-nmap <silent> [ :lprev<cr>
-" next syntastic error
-nmap <silent> ] :lnext<cr>
+nmap <silent> [ <Plug>(ale_previous_wrap)
+nmap <silent> ] <Plug>(ale_next_wrap)
 
 "-------------------------
 " Fugitive
@@ -402,8 +373,8 @@ let delimitMate_expand_cr = 1
 " if x - cursor if you press space in {x} result will be { x } instead of { x}
 let delimitMate_expand_space = 1
 
-" Without this we can't disable delimitMate for specific file types
-let loaded_delimitMate = 1
+" Enable it for quotes
+let delimitMate_smart_quotes = 1
 
 "-------------------------
 " vim-mustache-handlebars
@@ -415,7 +386,7 @@ let g:mustache_abbreviations = 1
 " vim-closetag
 
 " Enable for files with this extensions
-let g:closetag_filenames = "*.handlebars,*.html,*.xhtml,*.phtml"
+let g:closetag_filenames = "*.handlebars,*.html,*.xhtml,*.phtml,*.tsx,*jsx"
 
 "-------------------------
 " Solarized
@@ -455,15 +426,22 @@ let g:airline_section_x = ''
 
 let g:ycm_semantic_triggers = {
     \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \   'less': [ 're!^\s{4}', 're!:\s+' ],
+    \   'less': [ 're!^\s{4}', 're!:\s+' ]
     \ }
 
 " Choose completion with tab
 let g:ycm_key_list_select_completion=["<tab>"]
 let g:ycm_key_list_previous_completion=["<S-tab>"]
 
-" Populate location list with errors to behave just like syntastic
-let g:ycm_always_populate_location_list = 1
+let g:ycm_filepath_blacklist = {
+    \ 'jsx': 1,
+    \ 'typescript': 1,
+    \ 'html': 1,
+    \ 'xml': 1
+    \}
+
+" Since we use ale already
+let g:ycm_show_diagnostics_ui = 0
 
 " Go to type definition/declaration
 nmap <silent> <leader>td :YcmCompleter GoTo<CR>
@@ -639,14 +617,14 @@ set expandtab
 set smarttab
 
 " Number of spaces to use for each step of indent
-set shiftwidth=4
+set shiftwidth=2
 
 " Number of spaces that a Tab in the file counts for
-set tabstop=4
+set tabstop=2
 
 " Same but for editing operation (not sure what exactly does it means)
 " but in most cases tabstop and softtabstop better be the same
-set softtabstop=4
+set softtabstop=2
 
 " Round indent to multiple of 'shiftwidth'.
 " Indentation always be multiple of shiftwidth
@@ -676,10 +654,6 @@ nnoremap <silent> <cr> :nohlsearch<cr><cr>
 
 " Show matching brackets
 set showmatch
-
-" Make < and > match as well
-set matchpairs+=<:>
-
 
 "--------------------------------------------------
 " Wildmenu
@@ -807,8 +781,6 @@ if has("autocmd")
 
         " Not enable Folding - it really slow on large files, uses plugin vim-javascript-syntax
         " au FileType javascript* call JavaScriptFold()
-        au FileType html let b:loaded_delimitMate = 1
-        au FileType handlebars let b:loaded_delimitMate = 1
 
     " Group end
     augroup END
