@@ -80,11 +80,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 " and add smart cursor positioning inside it,
 NeoBundle 'Raimondi/delimitMate'
 
-" Add code static check on write
-" need to be properly configured.
-" I just enable it, with default config,
-" many false positive but still useful
-" NeoBundle 'scrooloose/syntastic'
+" Add code static check on the fly
 NeoBundle 'w0rp/ale'
 
 " Install jshint and stylelint for syntastic
