@@ -160,7 +160,7 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'wavded/vim-stylus'
 
 " Add support for taltoad/vim-jadeumarkdown
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'gabrielelana/vim-markdown'
 
 " Highlights the matching HTML tag when the cursor
 " is positioned on a tag.
