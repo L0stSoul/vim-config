@@ -730,6 +730,17 @@ vmap <leader>s :s//<left>
 
 " Moving between splits
 nmap <leader>w <C-w>w
+nmap <S-Up> <C-w><Up>
+nmap <S-Left> <C-w><Left>
+nmap <S-Right> <C-w><Right>
+nmap <S-Down> <C-w><Down>
+
+" Resize splits
+nmap <leader>w <C-w>w
+nmap <C-S-Up> <C-w>+
+nmap <C-S-Left> <C-w><
+nmap <C-S-Right> <C-w>>
+nmap <C-S-Down> <C-w>-
 
 "--------------------------------------------------
 " Autocmd

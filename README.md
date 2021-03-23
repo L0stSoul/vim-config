@@ -52,6 +52,16 @@ Git commit -a --amend                                     | `leader gcf`
 **▶ Spellcheck**                                          |
 Show suggestions                                          | `z=`
 Add word under the cursor as a good word                  | `zg`
+**▶ Splits**                                              |
+Move between splits                                       | `leader w`
+Move to the top split                                     | `shift + arrow up`
+Move to the bottom split                                  | `shift + arrow down`
+Move to the the right split                               | `shift + arrow right`
+Move to the the left split                                | `shift + arrow left`
+Make split bigger vertically                              | `shift + ctrl + arrow up`
+Make split smaller vertically                             | `shift + ctrl + arrow down`
+Make split bigger horizontally                            | `shift + ctrl + arrow right`
+Make split smaller horizontally                           | `shift + ctrl + arrow left`
 **▶ Other**                                               |
 Toggle comment on the current line                        | `gcc`
 Toggle comments                                           | `gc in visual mode, or gc + motion`
@@ -60,7 +70,6 @@ Toggle folding                                            | `space`
 Toggle insert mode                                        | `leader p`
 Yanking history with Quick navigation                     | `leader h`
 Replace                                                   | `leader s`
-Move between splits                                       | `leader w`
 ESC                                                       | `j+k (simultaneously)`
 Quick tab navigation                                      | `leader '`
 
